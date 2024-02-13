@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MT8KQXB');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <title>Разработка лендингов для ICO/STO и интерфейсов криптовалютных проектов стилке киберпанк!</title>
+    <meta name="description" content="Разработка лендингов для ICO/STO и интерфейсов криптовалютных проектов стилке киберпанк!">
+    <meta property="og:title" content="Crypto Design">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="/img/social.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon-180x180.png">
+    <meta name="theme-color" content="#000">
+    <link rel="stylesheet" href="/css/main.min.css">
+  </head>
+  <body id="body">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MT8KQXB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="d-block d-lg-none container is-relative">
+      <nav class="navigation">
+        <button id='toggle-top-screen' class="toggle-top-screen btn btn--image"> <img src="/img/example-work-button.png"> </button>
+        <div id="top-screen" class="top-screen">
+          <div class="d-flex align-items-center">
+            <a href="tg://resolve?domain=vino_costa">
+              <img class="mr-3 mr-sm-5" src="/img/example-work.jpg" alt="Example template">
+            </a>
+            <p>
+              Закажи эскиз<br/> <a href="tg://resolve?domain=vino_costa" class="text--accent">первого экрана</a>
+            </p>
+          </div>
+          <a href="tg://resolve?domain=vino_costa" class="btn btn--lg btn--secondary mr-5">Всего за $100</a>
+        </div>
+        <div id="nav-burger" class="navigation-toogle"><span></span></div>
+        <ul class="navigation-menu">
+          <li><a href="/ru/">Главная</a></li>
+          <li><a href="/ru/projects.html">Проекты</a></li>
+          <!-- <li><a href="#">Pricing</a></li> -->
+          <!-- <li><a href="#">About</a></li> -->
+          <li class="has-dropdown">
+            <div class="dropdown">
+              <span class="dropdown-title">RU</span>
+              <ul class="dropdown-list">
+                  <li><a href="/">EN</a></li>
+                  <li><a href="/ch/">CH</a></li>
+                  <li><a href="/jp/">JP</a></li>
+                  <li><a href="/de/">DE</a></li>
+                  <li><a href="/fr/">FR</a></li>
+                  <li><a href="/it/">IT</a></li>
+                  <li><a href="/pr/">PR</a></li>
+                  <li><a href="/sp/">SP</a></li>
+                  <li><a href="/nr/">NR</a></li>
+                  <li><a href="/sw/">SW</a></li>
+                  <li><a href="/dn/">DN</a></li>
+                  <li><a href="/lt/">LT</a></li>
+                </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <section class="section" id="block-main">
+      <div class="container">
+        <nav class="navigation">
+          <ul class="navigation-menu">
+          <li><a href="/ru/">Главная</a></li>
+          <li><a href="/ru/projects.html">Проекты</a></li>
+          <li class="has-dropdown">
+            <div class="dropdown">
+              <span class="dropdown-title">RU</span>
+              <ul class="dropdown-list">
+                <li><a href="/">EN</a></li>
+                <li><a href="/ch/">CH</a></li>
+                <li><a href="/jp/">JP</a></li>
+                <li><a href="/de/">DE</a></li>
+                <li><a href="/fr/">FR</a></li>
+                <li><a href="/it/">IT</a></li>
+                <li><a href="/pr/">PR</a></li>
+                <li><a href="/sp/">SP</a></li>
+                <li><a href="/nr/">NR</a></li>
+                <li><a href="/sw/">SW</a></li>
+                <li><a href="/dn/">DN</a></li>
+                <li><a href="/lt/">LT</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        </nav>
+      </div>
+      <div class="container">
+        <div class="box box--row box_first_screen" data-aos="fade-down-right" data-aos-delay="200">
+          <a class="btn btn--image" href="tg://resolve?domain=vino_costa">
+            <img class="box__image" src="/img/example-work-min.jpg"  class="" alt="'Buy Now' layout">
+          </a>
+          <div class="box-caption box-caption--lg box-caption--bold">
+            <p>
+              Закажи эскиз<br/> <a href="tg://resolve?domain=vino_costa" class="text--accent">первого экрана</a>
+            </p>
+          </div>
+          <div class="box-action">
+            <a href="tg://resolve?domain=vino_costa" class="btn btn--secondary">Всего за $100</a>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="section-title section-title--foreign-language" data-aos="fade-right">КРИПТО<br/>ДИЗАЙН</h1>
+            <div data-aos="fade-up-right">
+              <h2 class="section-description">Помогаем  компаниям из технологического <br/> сектора расти при помощи дружелюбного <br/> интерфейса и wow дизайна в стиле киберпанк</h2>
+              <p class="section-action">
+                <a href="tg://resolve?domain=vino_costa" class="btn btn--lg btn--primary"><img class="btn__icon btn__icon--left" src="/img/icons/tg.svg" alt="Telegram"> Связаться</a>
+                <a class="btn btn--lg btn--secondary"  href="/ru/projects.html" >Смотреть проекты</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container container--special">
+        <div class="d-flex align-items-center flex-wrap justify-content-between w-100">
+          <div class="box box--row" data-aos="fade-right" data-aos-delay="350" data-aos-anchor="#body" data-aos-anchor-placement="top-bottom" >
+            <a class="no-underline js-open-modal" data-target="video-watch"" href="tg://resolve?domain=vino_costa">
+              <img class="btn btn--primary btn--icon" src="/img/button.svg">
+            </a>
+            <div class="box-caption">
+              <p>
+                Как мы это делаем?<br/> Backstage проекта
+              </p>
+              <p>
+                <a class="link link--bold js-open-modal" data-target="video-watch" href="tg://resolve?domain=vino_costa">
+                  Смотреть видео
+                  <svg class="link__icon-arrow-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 7 12">
+                    <defs>
+                    <path id="a" d="M9 16.59L13.327 12 9 7.41 10.332 6 16 12l-5.668 6z"/>
+                    </defs>
+                    <g fill="none" fill-rule="evenodd" transform="translate(-9 -6)">
+                    <path d="M0 0h24v24H0z"/>
+                    <use fill="#ff005b" fill-rule="nonzero" xlink:href="#a"/>
+                    </g>
+                  </svg>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div data-aos="fade-left" data-aos-anchor="#body" data-aos-anchor-placement="top-bottom" data-aos-duration="500" id="man-2" data-firstimg="/img/mans/man2-min.png" data-secondimg="/img/mans/man2-2-min.png" data-thirdimg="/img/mans/man2-3-min.png" class="glitch glitch--style-1">
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+          </div>
+          <div data-aos="fade-left" data-aos-anchor="#body" data-aos-anchor-placement="top-bottom" data-aos-duration="750" data-aos-delay="150" id="man-1" data-firstimg="/img/mans/man1-min.png" data-secondimg="/img/mans/man1-2-min.png" data-thirdimg="/img/mans/man1-3-min.png" class="glitch glitch--style-1">
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+            <div class="glitch__img"></div>
+          </div>
+          <div class="humans-list">
+            <div class="d-flex justify-content-center align-items-center" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-delay="400">
+              <div class="hex">
+                <a target="_blank" href="https://www.youtube.com/watch?v=lbbXLmHAg0Q" data-target="video-man-1"  aria-label="Play" class="btn btn--primary fas fa-play js-open-modal"><img class="hex__icon" src="/img/triangle.svg" alt="triangle"></a>
+              </div>
+              <div class="human-info">
+                <p class="human-info__title">
+                  КОНСТАНТИН<br/>ВИНОГРАДОВ
+                </p>
+                <p class="human-info__subtitle">
+                  Дизайн менеджер 
+                </p>
+                <div class="links-list">
+                  <a aria-label="Telegram" href="tg://resolve?domain=vino_costa" class=""><img src="/img/icons/tg.svg" alt="Telegram"></a>
+                  <a aria-label="Linkedin" href="https://www.linkedin.com/in/vinocosta/" class=""><img src="/img/icons/in.svg" alt="Linkedin"></a>
+                  <a aria-label="Facebook" href="https://www.facebook.com/vinocostas" class=""><img src="/img/icons/fb.svg" alt="Facebook"></a>
+                  <a aria-label="Bitcoin" href="https://bitcointalk.org/index.php?topic=5053560.msg47694702#msg47694702" class=""><img src="/img/icons/btc.svg" alt="Bitcoin"></a>
+                  <a aria-label="Dribbble" href="https://dribbble.com/vino_costa" class=""><img src="/img/icons/drib.svg" alt="Dribbble"></a>
+                  <a aria-label="Twitter" href="https://twitter.com/roobin_rus" class=""><img src="/img/icons/tw.svg" alt="Twitter"></a>
+                  <a aria-label="Medium" href="https://medium.com/@konstantinvinogradov_42874" class=""><img src="/img/icons/md.svg" alt="Medium"></a>
+                  <a aria-label="Inst" href="https://www.instagram.com/vino_costa/" class=""><img src="/img/icons/inst.svg" alt="Instagram"></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center"
+                 data-aos="fade-left"
+                 data-aos-anchor-placement="top-bottom"
+                 data-aos-delay="500">
+              <div class="hex">
+                <a href="https://www.youtube.com/watch?v=hfTwUPV5Ko0" data-target="video-man-2" aria-label="Play" class="btn btn--primary js-open-modal"><img class="hex__icon" src="/img/triangle.svg" alt="triangle"></a>
+              </div>
+              <div class="human-info">
+                <p class="human-info__title">
+                  ИЛЬЯ<br/>
+                  ДУДАКОВ
+                </p>
+                <p class="human-info__subtitle">
+                  Крипто дизайнер
+                </p>
+                <div class="links-list">
+                  <a aria-label="Telegram" href="tg://resolve?domain=vino_costa" class=""><img src="/img/icons/tg.svg" alt="Telegram"></a>
+                  <a aria-label="Linkedin" href="https://www.linkedin.com/in/ilya-dudakov-50104aa3/" class=""><img src="/img/icons/in.svg" alt="Linkedin"></a>
+                  <a aria-label="Facebook" href="https://www.facebook.com/ilyaddkv" class=""><img src="/img/icons/fb.svg" alt="Facebook"></a>
+                  <a aria-label="Bitcoin" href="https://bitcointalk.org/index.php?topic=5053560.msg47694702#msg47694702" class=""><img src="/img/icons/btc.svg" alt="Bitcoin"></a>
+                  <a aria-label="Dribbble" href="https://dribbble.com/ilyaddkv" class=""><img src="/img/icons/drib.svg" alt="Dribbble"></a>
+                  <!-- <a aria&#45;label="Twitter" href="#" class=""><img src="img/icons/tw.svg" alt="Twitter"></a> -->
+                  <!-- <a aria&#45;label="Medium" href="#" class=""><img src="img/icons/md.svg" alt="Medium"></a> -->
+                  <a aria-label="Inst" href="https://www.instagram.com/ilyaddkv/" class=""><img src="/img/icons/inst.svg" alt="Instagram"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="#scroll-mobile" class="mobile-layout" class="d-lg-none d-block">
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <section class="section" id="block-main-mobile">
+              <div class="container">
+                <h1 class="section-title text-left">КРИПТО<br/>ДИЗАЙН</h1>
+                <p data-aos="fade-up" data-aos-anchor-placement="top-bottom" class="section-action section-action--bottom text-center">
+                  <a href="tg://resolve?domain=vino_costa" class="btn btn--lg btn--primary my-2 mx-3"><img class="btn__icon btn__icon--left" src="/img/icons/tg.svg" alt="Telegram"> Связаться </a>
+                  <a class="btn btn--lg btn--secondary  my-2 mx-3" href="/ru/projects.html" >Смотреть проекты</a>
+                </p>
+              </div>
+            </section>
+          </div>
+          <div class="swiper-slide">
+            <section class="section" id="block-first-man">
+              <div class="container">
+                <h1 class="section-title is-md" >КОНСТАНТИН<br/>ВИНОГРАДОВ</h1>
+                <h2 class="section-subtitle">Дизайн менеджер</h2>
+                <img class="section-image" src="/img/mans/tablet/man2-lg.png">
+
+                <div class="section-action section-action--bottom text-center flex-column">
+                  <div class="hex">
+                    <a href="https://m.youtube.com/watch?v=lbbXLmHAg0Q" aria-label="Play" class="btn btn--primary fas fa-play"><img class="hex__icon" src="/img/triangle.svg" alt="triangle"></a>
+                  </div>
+                  <a href="tg://resolve?domain=vino_costa" class="btn btn--lg btn--secondary js-contact-list-toggle" data-target="contact-constantine">Контакты</a>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="swiper-slide">
+            <section class="section" id="block-second-man">
+              <div class="container">
+                <h1 class="section-title is-md" > ИЛЬЯ<br/>ДУДАКОВ</h1>
+                <h2 class="section-subtitle" >Крипто дизайнер</h2>
+                <img class="section-image" src="/img/mans/tablet/man1-sm.png">
+                <div class="section-action section-action--bottom text-center flex-column">
+                  <div class="hex">
+                    <a href="https://www.youtube.com/watch?v=hfTwUPV5Ko0" aria-label="Play" class="btn btn--primary fas fa-play"><img class="hex__icon" src="/img/triangle.svg" alt="triangle"></a>
+                  </div>
+                  <a href="tg://resolve?domain=vino_costa" class="btn btn--lg btn--secondary js-contact-list-toggle" data-target="contact-ilia">Контакты</a>
+                </div>
+              </div>
+
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div id="contact-constantine" class="c-contact-list">
+        <button data-target="contact-constantine" class="c-contact-list__close btn js-contact-list-toggle">Свернуть</button>
+        <div class="c-contact-list__content">
+          <a class="c-contact-list__link" aria-label="Telegram" href="tg://resolve?domain=vino_costa" ><img class="c-contact-list__icon" src="/img/icons/tg.svg" alt="Telegram"></a>
+          <a class="c-contact-list__link" aria-label="Linkedin" href="https://www.linkedin.com/in/vinocosta/"><img class="c-contact-list__icon" src="/img/icons/in.svg" alt="Linkedin"></a>
+          <a class="c-contact-list__link" aria-label="Facebook" href="https://www.facebook.com/vinocostas"><img class="c-contact-list__icon" src="/img/icons/fb.svg" alt="Facebook"></a>
+          <a class="c-contact-list__link" aria-label="Bitcoin" href="https://bitcointalk.org/index.php?topic=5053560.msg47694702#msg47694702"><img class="c-contact-list__icon" src="/img/icons/btc.svg" alt="Bitcoin"></a>
+          <a class="c-contact-list__link" aria-label="Dribbble" href="https://dribbble.com/vino_costa"><img class="c-contact-list__icon" src="/img/icons/drib.svg" alt="Dribbble"></a>
+          <a class="c-contact-list__link" aria-label="Twitter" href="https://twitter.com/roobin_rus"><img class="c-contact-list__icon" src="/img/icons/tw.svg" alt="Twitter"></a>
+          <a class="c-contact-list__link" aria-label="Medium" href="https://medium.com/@konstantinvinogradov_42874"><img class="c-contact-list__icon" src="/img/icons/md.svg" alt="Medium"></a>
+          <a class="c-contact-list__link" aria-label="Inst" href="https://www.instagram.com/vino_costa/"><img class="c-contact-list__icon" src="/img/icons/inst.svg" alt="Instagram"></a>
+
+        </div>
+      </div>
+
+      <div id="contact-ilia" class="c-contact-list">
+        <button data-target="contact-ilia" class="c-contact-list__close btn js-contact-list-toggle">Свернуть</button>
+        <div class="c-contact-list__content">
+          <a aria-label="Telegram" href="tg://resolve?domain=vino_costa" class="c-contact-list__link"><img class="c-contact-list__item" src="/img/icons/tg.svg" alt="Telegram"></a>
+          <a aria-label="Linkedin" href="https://www.linkedin.com/in/ilya-dudakov-50104aa3/" class="c-contact-list__link"><img class="c-contact-list__item" src="/img/icons/in.svg" alt="Linkedin"></a>
+          <a aria-label="Facebook" href="https://www.facebook.com/ilyaddkv" class="c-contact-list__link"><img class="c-contact-list__item" src="/img/icons/fb.svg" alt="Facebook"></a>
+          <a aria-label="Bitcoin" href="https://bitcointalk.org/index.php?topic=5053560.msg47694702#msg47694702" class="c-contact-list__link"><img class="c-contact-list__item" src="/img/icons/btc.svg" alt="Bitcoin"></a>
+          <a aria-label="Dribbble" href="https://dribbble.com/ilyaddkv" class="c-contact-list__link"><img class="c-contact-list__item" src="/img/icons/drib.svg" alt="Dribbble"></a>
+          <a aria-label="Inst" href="https://www.instagram.com/ilyaddkv/" class="c-contact-list__link"><img class="c-contact-list__item" src="/img/icons/inst.svg" alt="Instagram"></a>
+        </div>
+      </div>
+
+    <div id="video-man-1" class="c-modal">
+      <div class="c-modal-content">
+        <div class="c-modal-body">
+          <div class="c-modal-video js-get-youtube" data-youtube="https://www.youtube.com/embed/lbbXLmHAg0Q">
+            <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="video-man-2" class="c-modal">
+      <div class="c-modal-content">
+        <div class="c-modal-body">
+          <div class="c-modal-video js-get-youtube" data-youtube="https://www.youtube.com/embed/hfTwUPV5Ko0">
+            <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="video-watch" class="c-modal">
+      <div class="c-modal-content">
+        <div class="c-modal-body">
+          <div class="c-modal-video js-get-youtube" data-youtube="https://www.youtube.com/embed/meiJ35yKqKA">
+            <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/scripts.min.js"></script>
+  </body>
+</html>
+
+    <script src="/js/scripts.min.js"></script>
+  </body>
+</html>
