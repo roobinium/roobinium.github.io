@@ -1,0 +1,67 @@
+@media (max-width: 1500px) {
+    .roobinium {
+        &__descr {
+            margin-left: 0px;
+        }
+    }
+}
+@media (max-width: 1400px) {
+    .roobinium {
+        &__img {
+            width: 640px;
+            height: auto;    
+        }
+    }
+}
+@media (max-width: 1200px) {
+    .roobinium {
+        &__img {
+            width: 540px;
+            height: auto;    
+        }
+        &__descr {
+            width: 366px;
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .roobinium {
+        &__img {
+            width: 440px;
+            height: auto;    
+        }
+        &__descr {
+            width: 296px;
+            height: auto;
+            animation-delay: 0.3s;
+            p {
+                margin-top: 29px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .roobinium {
+        margin: 0;
+        padding: 0px 0 48px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        &__img {
+            width: 576px;
+            height: 360px;    
+        }
+        &__descr {
+            width: 296px;
+            height: auto;
+            animation-delay: 0.3s;
+            p {
+                margin-top: 29px;
+            }
+        }
+    }
+}

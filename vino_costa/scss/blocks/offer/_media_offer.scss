@@ -1,0 +1,189 @@
+@media (max-width: 1400px) {
+    .offer {
+        &__slider {
+            width: 1000px;
+		    height: 393px;
+            &__value-left {
+                margin-right: 341px;
+                display: flex;
+                justify-content: start;
+            }
+        
+            &__emoji {
+                margin-right: 277px;
+                img {
+                    max-width: 48px;
+                    max-height: 48px;
+                }
+            }
+        }
+        
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .offer {
+        &__slider {
+            width: 750px;
+		    height: 393px;
+            &__value-left {
+                margin-right: 216px;
+                display: flex;
+                justify-content: start;
+            }
+        
+            &__emoji {
+                margin-right: 152px;
+                img {
+                    max-width: 48px;
+                    max-height: 48px;
+                }
+            }
+        }
+        
+    }
+}
+
+@media (max-width: 768px) {
+    .offer {
+        padding-top: 12px;
+        padding-bottom: 24px;
+        &__container {
+            padding: 16.34px 0 28px;
+            width: 360px;
+        }
+        &__title {
+            width: 296px;
+            margin: 0 44px;
+            margin-bottom: 24px;
+            font-size: 20px;
+            font-weight: 1000;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: left;
+
+        }
+        &__image-container {
+            width: 344px;
+            height: 344px;
+        }
+        &__image {
+            background-image: url('../img/offer/Card-min.jpg');
+        }
+        &__services {
+           margin-top: 32px;
+           margin-left: 31.5px;
+           margin-bottom: 32px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: left;
+
+            li {
+                margin-bottom: 27px;
+            }
+        }
+        
+        &__button {
+            padding: 24px 63px;
+            margin-left: 32.5px;
+            width: 260px;
+            height: 72px;
+            margin-bottom: 95px;
+            &--text {
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: -0.35555556416511536px;
+            }
+    
+        }
+
+        
+        &__slider {
+            margin-top: 24px;
+            width: 344px;
+            height: 184px;
+            padding: 12px 16px 16px;
+            &__values {
+                font-size: 14px;
+                font-weight: 800;
+                line-height: 20px;
+                letter-spacing: -0.4000000059604645px;
+                text-align: left;
+                margin-bottom: 20px;
+    
+            }
+
+            &__value-left {
+                margin-right: 109px;
+            }
+        
+            &__emoji {
+                margin-right: 69px;
+                img {
+                    max-width: 24px;
+                    max-height: 30px;
+                }
+            }
+            &__value-right {
+                img {
+                    vertical-align:middle;
+                    margin-right: 0.36px;
+                    width: 19.64px;
+                    height: 16px;
+                }
+            }
+            input[type='range']::-webkit-slider-thumb {
+                -webkit-appearance: none !important;
+                background-color:rgba(255, 255, 255, 1);
+                height:12px;
+                width:12px;
+                border-radius: 100%
+            }
+            &__button--container {
+                margin-top: 19px;
+                display: flex;
+                // justify-content: center;
+                flex-direction: column;
+                align-items: start;
+                p {
+                    font-size: 14px;
+                    font-weight: 800;
+                    line-height: 20px;
+                    letter-spacing: -0.4000000059604645px;
+                    
+                }
+            }
+            &__button {
+                margin-top: 14px;
+                padding: 14px 32px;
+                width: 152px;
+                height: 48px;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 20px;
+                letter-spacing: -0.4000000059604645px;
+                border: none;
+                cursor: pointer;
+                background: rgba(0, 255, 170, 1);
+                color: rgba(9, 13, 20, 1);
+            }
+        }
+            
+        
+    }
+
+    .ribbon__bold {
+        width: 522.35px;
+        height: 50.18px;
+        font-size: 11.4px;
+        font-weight: 1000;
+        line-height: 18.25px;
+        text-align: left;
+        padding-left: 13.92px;
+        padding-top: 6.28px;
+    }
+}
+

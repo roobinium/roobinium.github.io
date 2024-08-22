@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+    .move-it {
+        margin-top: 8px;
+        padding-bottom: 112px;
+        background-color: #090D14;
+        &__title {
+            top: 40px;
+            font-size: 20px;
+            font-weight: 1000;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: center;
+        }   
+    }
+    .mobile {
+        display: block;
+    }	
+    
+    .desctop {
+        display: none;
+    }	
+}

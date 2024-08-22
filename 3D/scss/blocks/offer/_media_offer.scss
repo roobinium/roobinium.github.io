@@ -1,0 +1,54 @@
+@media (max-width: 768px) {
+    .offer {
+        padding: 8px 0 0;
+        margin-top: 0;
+        &__container {
+            padding: 16.34px 0 28px;
+            width: 360px;
+        }
+        &__title {
+            width: 296px;
+            margin: 0 44px;
+            margin-bottom: 24px;
+            font-size: 20px;
+            font-weight: 1000;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: left;
+
+        }
+        &__image-container {
+            width: 344px;
+            height: 344px;
+        }
+        &__services {
+           margin-top: 32px;
+           margin-left: 31.5px;
+           margin-bottom: 5px;
+           width: 307px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: left;
+
+            li {
+                margin-bottom: 27px;
+            }
+        }
+        
+        &__button {
+            padding: 24px 63px;
+            margin-left: 32.5px;
+            width: 179px;
+            height: 72px;
+            &--text {
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: -0.35555556416511536px;
+            }
+    
+        }   
+    }
+}
+

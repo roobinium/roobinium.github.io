@@ -1,0 +1,162 @@
+@media (max-width: 1400px) {
+    .top-projects {
+        &__grid {
+            grid-template-columns: repeat(2, 490px);
+        }
+        &__container {
+            padding: 24px 0 32px 0;
+            max-width: 1004px;
+            max-height: 100%;
+        }
+    }
+    .project-card {
+        width: 490px;
+        height: auto;       
+    }
+}
+
+@media (max-width: 1024px) {
+    .top-projects {
+        &__grid {
+            grid-template-columns: repeat(1, 648px);
+        }
+        &__container {
+            max-width: 700px;
+            max-height: 100%;
+            margin: 0 auto;
+        }
+    }
+    .project-card {
+        width: 648px;
+        height: auto;  
+        &:nth-child(2) {
+            animation-delay: 0s;
+        }
+        &:nth-child(4) {
+            animation-delay: 0s;
+        }
+        &:nth-child(6) {
+            animation-delay: 0s;
+        }     
+    }
+}
+
+@media (max-width: 768px) {
+    .top-projects {
+        margin-top: 8px;
+        &__grid {
+            grid-template-columns: repeat(1, 648px);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__container {
+            padding: 24px 0 32px 0;
+            max-width: 312px;
+            max-height: 100%;
+        }
+        &__title {
+            font-size: 20px;
+            font-weight: 1000;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: left;
+            margin-left: 0;
+            margin-bottom: 24px;
+            img {
+                position: absolute;
+                top: 0px;
+                width: 24px;
+            }
+        }
+    }
+    .project-card {
+        width: 312px;
+        height: 326px;
+        &__title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: -0.800000011920929px;;
+        }
+        
+        &__description {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+            margin-bottom: 16px;
+            &__mask {
+                p {
+                    display: none;
+                }
+                &::after {
+                    content: 'Exclusive crypto community';
+                }
+            }
+            
+        }
+        &__link {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+
+            img {
+                width: 24px;
+                height: 24px;
+                margin-right: 12px;
+            }
+    
+        }
+
+       
+       
+    }
+    .user-trust {
+        text-align: center;
+        margin: 32px 0 32px;
+        font-family: 'Manrope', sans-serif;
+    
+        &__title {
+            margin-bottom: 0px;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 48px;
+            letter-spacing: -2px;
+            text-align: left;
+
+        }
+        
+        &__count {
+            margin-bottom: 00px;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 48px;
+            letter-spacing: -2px;
+            text-align: left;
+        }
+    }
+    .ribbon {
+        font-size: 9.69px;
+        padding: 0;
+        font-weight: 1000;
+        line-height: 15.5px;
+        text-align: left;
+        align-items:center;
+        width: 391px;
+        height: 16px;
+        top: 28.5px;
+        box-sizing: border-box;
+        white-space: nowrap;
+    }
+    
+    .download-excel {
+        width: 312px;
+        height: 96px;
+    }
+
+    
+    
+}

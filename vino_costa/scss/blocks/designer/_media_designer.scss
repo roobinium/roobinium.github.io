@@ -1,0 +1,209 @@
+@media (max-width: 1000px) {
+    .designer {
+        padding: 32px 0;
+
+        &__title{
+            text-align: left;
+        }
+
+        &__awards-grid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__slider {
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 0 24px;
+            display: block;
+            height: 144px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            &__item {
+                padding-bottom: 36px;
+                width: 296px;
+                height: 144px;
+                display: inline-flex;
+                text-align: center;
+                align-items: end;
+                justify-content: center;
+                margin-right: 24px;
+                user-select: none;
+                
+            }
+            
+        }
+        &__slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        &__hide {
+            
+            display: block;
+            &--768px {
+                display: none;
+            }
+        }
+
+        &__award {
+
+            &-photo {
+                grid-column: span 2;
+                img{
+                    padding: 16px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            
+            &--golden-spear {
+                width: 424px;
+                flex-direction: column;
+                justify-content: center;
+                text-align:center;
+                padding: 16px;
+                &--gif {
+                    margin-bottom: 0px;
+                    width: 264px;
+                    height: 273px;  
+                    object-fit: cover;       
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }         
+                }
+                img {
+                    max-height: 391px;
+                    width: 264px;
+                }
+                h3 {
+                    margin-top: 24px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    text-align: left;
+                    margin-right: auto;
+                    margin-left: 8px;
+                }
+                h2 {
+                    width: 253px;
+                    font-size: 16px;
+                    font-weight: 1000;
+                    line-height: 24px;
+                    letter-spacing: -0.4000000059604645px;
+                    text-align: left;
+                    margin-right: auto;
+                    margin-left: 8px;
+
+
+                }
+    
+            }
+
+            &--best-freelance{
+                width: 424px;
+                height: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+            
+        }
+        span {
+            margin-top: 40px;
+            width: 424px;
+    
+        }
+
+        &__testimonial{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 424px;
+            &-text {
+                margin-top: 16px;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 24px;
+                letter-spacing: -0.6000000238418579px;
+                text-align: left;
+            }
+            &-client {
+                margin-top: 8px;
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 24px;
+                letter-spacing: -0.6000000238418579px;
+                text-align: left;
+
+            }
+            &-link {
+                display: flex;
+			    justify-content: start;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 24px;
+                letter-spacing: -0.4000000059604645px;
+                text-align: left;
+
+            }
+        }
+           
+    }
+
+    .ribbon {
+        &__916px {
+           display: none;
+        }
+        
+    }
+}
+
+@media (max-width: 768px) {
+    .designer {
+        padding: 32px 0;
+
+        &__title{
+            width: 296px;
+            font-size: 20px;
+            font-weight: 1000;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: left;
+
+        }
+        &__award {
+
+            &-photo {
+                width: 296px;
+                height: 363px;
+
+                img{
+                    padding: 16px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &--golden-spear {
+                width: 296px;
+                
+            }
+            &--best-freelance{
+                width: 296px;
+                
+            }
+        }
+        span {
+            margin-top: 24px;
+            width: 296px;
+    
+        }
+        &__testimonial{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 296px;
+        }
+    }
+}

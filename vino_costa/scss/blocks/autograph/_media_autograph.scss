@@ -1,0 +1,93 @@
+@media (max-width: 1200px) {
+    .autograph {
+        background-position: center; 
+        padding:100px 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .autograph {
+        display: flex;
+        flex-direction: column;
+        background-position: center; 
+        padding: 0px;
+        background-image: url('');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__container {
+            border: 8px solid #000;
+            width: 360px;
+            height: 647px;
+            padding: 64px 32px 49px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: left;
+
+            img {
+                margin-left: 67.5px;
+            }
+            p {
+                margin-top: 32px;
+            }
+    
+        }
+        &__button {
+            margin-left: 16.5px;
+            margin-top: 48px;
+            font-size: 16px;
+            width: 263px;
+            height: 72px;
+            padding: 24px 86px 24px 86px;
+            bottom:50px;
+        }
+        &__image {
+            bottom: 221px;
+            left: 80px;
+            height: 160px;
+            background-color:#ffffff;
+            z-index: 1;
+        }
+
+        &__list {
+            width: 213px;
+            margin: 0 auto 32px;
+            li {
+                margin-bottom: 28px;
+            }
+        }
+        &__divider {
+            display: none;
+        }
+        &__divider-min {
+            display: block;
+            margin-bottom: 32px;
+        }
+        &__img-min {
+            background-image: url('../img/autograph/bg.jpg');
+            display: block;
+            width: 100%;
+            height: 360px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: right; 
+        }
+    }
+    @media only screen and ( -webkit-min-device-pixel-ratio: 2 ),
+
+    only screen and ( min--moz-device-pixel-ratio: 2),
+
+    only screen and (min-device-pixel-ratio: 2) {
+
+    .autograph {
+        &__img-min {
+            background-image: url('../img/autograph/bg@2x.jpg')
+        }
+    }
+
+}
+
+}
+
