@@ -1,0 +1,48 @@
+.ticker {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 148px;
+    padding: 0 12px;
+    background-color: #000; 
+
+    &__container {
+        display: flex;
+        animation: ticker-animation 10s linear infinite alternate;
+    }
+    
+    &__item {
+        display:inline-flex;
+        padding: 20px 32px;
+        height: 108px;
+        background-color: #000; 
+        border-radius: 68px;
+        border: 2px solid rgba(255, 255, 255, 1);
+        margin-right: 20px;
+       
+        &_text{
+            height: 68px;
+            display: inline-block;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 68px; 
+            color: #fff;
+            line-height: 68px;
+            letter-spacing: -2px;
+            text-align: left;
+
+        }
+        &_img {
+            width: 68px;
+            height: 68px;
+            display: inline-block;
+            margin-right: 16px;
+        }
+    
+    }
+}
+
+
+
+

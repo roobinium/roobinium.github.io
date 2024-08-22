@@ -1,0 +1,196 @@
+.employment {
+    // height: 1302px;
+    padding: 112px 0;
+    margin: 0 auto;
+    position: relative;
+    font-family: 'Manrope', sans-serif;
+    overflow: hidden;
+    &__container {
+        margin: 64px 0 0 284px;
+        display: flex;
+        // justify-content:center;
+        align-items: flex-start;
+        flex-direction: column;
+       
+    }
+  
+    &__title {
+        display:inline-flex;
+        font-family: 'DrukWideCyr-Super' , sans-serif;
+        font-size: 30px;
+        font-weight: 1000;
+        line-height: 36px;
+        letter-spacing: -1px;
+        text-align: left;
+        margin-left: 516px;
+        p {
+            display: flex;
+            align-items: center;
+        }
+
+    }
+  
+    &__linkedin-icon {
+        margin-left: 8px;
+        width: 36px;
+        height: 36px;
+        font-family: 'Manrope', sans-serif;
+    }
+  
+    &__job {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 64px;
+        position: relative;
+        animation-duration: 0.6s;
+        animation-delay: 0.4s;
+        &-icon {
+            // width: 94px;
+            // height: 94px;
+            margin-right: 136px;
+            margin-top: 7px;
+    
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        &-title {
+            font-family: 'DrukWideCyr-Super' , sans-serif;
+            font-size: 30px;
+            font-weight: 1000;
+            line-height: 36px;
+            letter-spacing: -1px;
+            text-align: left;
+        }
+
+        &-period{
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 24.59px;
+            letter-spacing: -1px;
+            text-align: left;
+        }
+
+        &-position {
+            margin-bottom: 27px;
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 40.98px;
+            letter-spacing: -1px;
+            text-align: left;
+        }
+
+        &-link {
+            margin-left: -32px;
+            display:inline-flex;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: -0.6000000238418579px;
+            text-align: left;
+            color: rgba(9, 13, 20, 1);
+            img {
+                margin-right: 8px;
+            }
+            animation-delay: 0.8s;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                opacity: 0.5;
+                transition: all 0.3s ease-in-out;
+                // text-decoration: none;
+            }
+            &:active {
+                transform: scale(0.9);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+
+        &::before {
+            content: '•';
+            position: absolute;
+            left: 154px;
+            top: 43px;
+            font-size: 34px;
+            line-height: 1;
+            width: 9px;
+            height: 9px;
+
+        }
+        &:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 164px;
+            top: 115px;
+            width: 2px;
+            height: 115px;
+            background-color: #000;
+            border: 1px 0px 0px 0px;
+    
+        }
+    }
+  
+    &__projects-info {
+        display: inline-block;
+        margin-left: 516px;
+        color: rgba(9, 13, 20, 1);
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 30px;
+        letter-spacing: -1px;
+        text-align: left;
+        animation-delay: 0.6s;
+        span {
+            font-weight: 800;
+        }
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            opacity: 0.5;
+            transition: all 0.3s ease-in-out;
+            // text-decoration: none;
+        }
+        &:active {
+            transform: scale(0.9);
+            transition: all 0.3s ease-in-out;
+        }
+
+    }
+  
+    &__social {
+        &-links {
+            margin-left: 516px;
+            animation-delay: 0.6s;
+            img {
+                width: 32px;
+                height: 32px;
+                margin-top: 16px;
+                margin-right: 16px;
+            }
+        }
+        
+        &-link {
+            display: inline-block;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                opacity: 0.5;
+                transition: all 0.3s ease-in-out;
+                // text-decoration: none;
+            }
+            &:active {
+                transform: scale(0.9);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        
+    }
+    
+}
+
+.ml29{
+    margin-left: -29px;
+    margin-right: 107px;
+}
+  

@@ -1,0 +1,36 @@
+.clients {
+    padding: 112px 0;
+    text-align: center;
+
+    &__title {
+        font-family: 'DrukWideCyr-Super', sans-serif;
+        font-size: 30px;
+        font-weight: 1000;
+        line-height: 36px;
+        letter-spacing: -1px;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    &__list {
+        margin: 0 auto;
+        width: 1100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &__item {
+        width: 200px;
+        text-align: center;
+    }
+
+    &__logo {
+        width: 100%;
+        height: auto;
+    }
+}
+
+

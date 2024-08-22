@@ -1,0 +1,168 @@
+.slider {
+    position: relative;
+	width: 100%;
+    margin-top: 16px;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        background-color: white;
+
+        &__container {
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+    
+    &__divider {
+        position: absolute;
+        width: 0px;
+        height: 100%;
+        background-color: rgba(256, 256, 256, 0.2);
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        cursor: ew-resize;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            top: 50%;
+            margin-top: -10px;
+            background-color: white;
+            transform: rotate(45deg);
+            transition: all 0.1s ease-in-out;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            left: -6px;
+            top: 50%;
+            margin-top: -6px;
+            background-color: white;
+            transform: rotate(45deg);
+            transition: all 0.1s ease-in-out;
+        }
+        &.draggable{
+            &:before {
+                width: 30px;
+                height: 30px;
+                left: -15px;
+                margin-top: -15px;
+            }
+            &:after {
+                width: 20px;
+                height: 20px;
+                left: -10px;
+                margin-top: -10px;
+                background-color: #555;
+            }
+        }
+    }
+
+    &__resize {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 50%;
+        overflow: hidden;
+        
+    }
+    &__view {
+        position: absolute;
+        text-decoration: none;
+        color: #000;
+        bottom: 64px;
+        // left: calc(50% - 242px /2);
+        left:50%;
+        transform: translateX(-50%);
+        padding: 36px ;
+        width: 242px;
+        height: 96px;
+        font-family: 'Manrope', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: -0.4000000059604645px;
+        text-align: left;
+        background: rgba(0, 255, 170, 1);
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        cursor: pointer;
+        border: none;
+        img {
+            width: 24px;
+            height: 24px;
+            margin-right: 36px;
+            transition: filter .3s  ease-in-out;
+        }
+        &:active {
+            transition: transform .3s  ease-in-out;
+            transform: translateX(-50%) scale(0.9);
+        }
+        &:hover {
+            img {
+                filter: invert(100%) brightness(100%);
+                transition: filter .3s  ease-in-out;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .slider {
+        &__view {
+            padding: 12px 24px ;
+            width: 160px;
+            height: 48px;
+            font-size: 16px;
+            white-space: nowrap;
+            bottom: 32px;
+            img {
+                margin-right: 14px;
+            }
+        }
+        &__divider {
+            &:before {
+                width: 15px; 
+                height: 15px; 
+                left: -7.5px;
+                margin-top: -7.5px; 
+            }
+            &:after {
+                width: 7px; 
+                height: 7px;
+                left: -3.5px; 
+                margin-top: -3.5px; 
+            }
+            &.draggable {
+                &:before {
+                    width: 25px; 
+                    height: 25px; 
+                    left: -12.5px; 
+                    margin-top: -12.5px; 
+                }
+                &:after {
+                    width: 15px; 
+                    height: 15px;
+                    left: -7.5px; 
+                    margin-top: -7.5px; 
+                }
+            }
+        }
+    }
+    
+}

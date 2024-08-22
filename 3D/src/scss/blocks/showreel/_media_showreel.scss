@@ -1,0 +1,65 @@
+@media (max-width: 1679px) {
+
+    .showreel{
+        &__container {
+        width: 100%; 
+        height: auto;
+        overflow-x: hidden;
+        }
+        &__slide {
+            height: auto;
+            width: auto;
+
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .showreel {
+        margin: 8px 0;
+        padding: 32px 0 32px;
+        background: #090D14;
+    
+        &__title {
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: center;
+            margin: 0 auto 32px auto;
+
+        }
+        &__container {
+            max-width: 360px; 
+            min-height: auto; 
+            overflow-x: hidden;
+        }
+        &__slide {
+            max-height: 165px;
+            max-width: 296px;
+            padding: 8px 0;
+            img {
+                max-height: 165px;
+                max-width: 296px;
+                transition: transform 0.3s ease;
+                object-fit: cover;
+            }
+            &::after {
+                height: 8px;
+            }
+            &::before {
+                height: 8px;
+            }
+            
+        }
+
+    }
+
+    .swiper-slide-active {
+        height: 100%;
+    }
+
+    .slide1 {
+    margin-left: 8px;
+}
+}

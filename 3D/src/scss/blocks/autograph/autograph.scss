@@ -1,0 +1,83 @@
+.autograph {
+    background-image: url('../img/autograph/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 100%;
+    height: auto;
+    padding: 636px 0px 60px 0px ;
+    background-color:#000;
+    overflow: hidden;
+    &__container {
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+        width: 526px;
+        height: 424px;
+        padding: 80px 115px;
+        color:#000;
+        background-color: #FFFFFF;
+        font-family: "Manrope", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: -0.4000000059604645px;
+        p {
+            margin-top: 36px;
+            text-align: center;
+        }
+    }
+    &__list {
+        width: 296px;
+        margin: 0 auto 17px;
+        li {
+			position: relative;
+			margin-bottom: 24px;
+			list-style-type:none;
+			padding-left: 29px;
+			&::before {
+				content: ""; 
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 21px;
+				border: 1px solid rgba(9, 13, 20, 1);
+			}
+            &:nth-last-child(1) {
+                margin-bottom: 0px;
+            }
+		}
+    }
+    &__button {
+        position: absolute;
+        bottom: 80px;
+        margin-left: 37px;
+        margin-top: 48px;
+        padding: 36px 60px;
+        font-family: "Manrope", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: -0.4000000059604645px;
+        text-align: center;
+        color:#FFFFFF;
+        background-color: #090D14;
+        width: 222px;
+        height: 96px;
+        cursor: pointer;
+		border: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    @media only screen and ( -webkit-min-device-pixel-ratio: 2 ),
+
+    only screen and ( min--moz-device-pixel-ratio: 2),
+
+    only screen and (min-device-pixel-ratio: 2) {
+
+        .autograph {
+            background-image: url('../img/autograph/bg@2x.jpg');
+        }
+
+    }
+}

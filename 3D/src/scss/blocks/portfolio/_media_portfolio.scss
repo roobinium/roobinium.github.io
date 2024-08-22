@@ -1,0 +1,43 @@
+@media (max-width: 1400px) {
+    .portfolio {
+        &__grid {
+            grid-template-columns:repeat(2, minmax(420px, 344px));
+            
+        }
+        &__item {
+            height: 420px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .portfolio {
+        &__grid {
+            grid-template-columns:repeat(2, minmax(400px, 344px));
+            gap: 20px;
+            
+        }
+        &__item {
+            height: 400px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio {
+        padding: 0;
+        &__grid {
+            grid-template-columns:repeat(1, 360px);
+            gap: 0px;
+        }
+        &__item {
+            height: 360px;
+        }
+        &__button {
+            display: block;
+        }
+    }
+    .hide {
+        display: none;
+    }
+}
