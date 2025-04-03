@@ -1,4 +1,5 @@
 function creativeSpace(container) {
+	const reels = document.querySelectorAll(container);
 	function pauseVideo(video) {
 		if (video) {
 			video.pause();
@@ -8,7 +9,7 @@ function creativeSpace(container) {
 
 	function playVideo(video) {
 		if (video) {
-			video.play();
+			video.play().catch((err) => console.warn("Ошибка воспроизведения видео:", err));
 		}
 	}
 
@@ -26,14 +27,57 @@ function creativeSpace(container) {
 		}
 	}
 
-	function manageVideos() {
-		const allVideos = document.querySelectorAll(".creative-space__slide video");
-		const activeSlide = document.querySelector(".swiper-slide-active video");
+	reels.forEach((video) => {
+		const videos = video.querySelectorAll("video");
+		if (!videos.length) return;
 
-		allVideos.forEach((video) => {
-			pauseVideo(video);
+		videos.forEach((video) => {
+			let poster = video.getAttribute("data-poster");
+			if (!poster) return;
+			let format = ""; // Получаем расширение файла
+
+			// Определяем плотность пикселей и тип устройства
+			const isRetina = window.devicePixelRatio >= 2;
+			const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+				navigator.userAgent,
+			);
+			const isHighDensityMobile = isMobile && window.devicePixelRatio >= 3;
+
+			// Выбираем папку в зависимости от устройства
+			const folder = isMobile ? "mobile" : "desktop";
+
+			let suffix = "jpg";
+			if (isHighDensityMobile) {
+				suffix = "@3x";
+				format = "png";
+			} else if (isRetina) {
+				suffix = "@2x";
+				format = "png";
+			} else {
+				suffix = "";
+				format = "jpg";
+			}
+
+			// Формируем новый путь к постеру
+			const newPosterPath = poster
+				.replace("creative-space", `creative-space/${folder}`)
+				.replace(".jpg", `${suffix}.${format}`);
+			if (!video.hasAttribute("poster")) {
+				video.setAttribute("poster", newPosterPath);
+			} else {
+				video.poster = newPosterPath;
+			}
 		});
+	});
 
+	function manageVideos() {
+		const containerElement = document.querySelector(container);
+		if (!containerElement) return;
+
+		const allVideos = containerElement.querySelectorAll("video");
+		const activeSlide = containerElement.querySelector(".swiper-slide-active video");
+
+		allVideos.forEach(pauseVideo);
 		playVideo(activeSlide);
 	}
 

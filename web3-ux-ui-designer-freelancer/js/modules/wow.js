@@ -1,3 +1,5 @@
+import hero from "../modules/hero.js";
+
 function animation() {
 	let wow = new WOW({
 		boxClass: "wow",
@@ -6,6 +8,146 @@ function animation() {
 		mobile: true,
 		live: true,
 		callback: function (box) {
+			if (box.classList.contains("layout")) {
+				setTimeout(() => {
+					hero(".hero__button-wrapper", ".layout");
+				}, 2000);
+			}
+			if (box.classList.contains("showreel")) {
+				const swiper = new Swiper(".showreel__container", {
+					slidesPerView: 1.625,
+					centeredSlides: true,
+					spaceBetween: 24,
+					simulateTouch: true,
+					touchEventsTarget: "wrapper",
+					breakpoints: {
+						// when window width is >= 320px
+						320: {
+							slidesPerView: 1.2,
+							spaceBetween: 8,
+						},
+						480: {
+							slidesPerView: 1.625,
+							spaceBetween: 24,
+						},
+					},
+					on: {
+						init: function () {
+							playActiveSlideVideo(this);
+						},
+						slideChange: function () {
+							playActiveSlideVideo(this);
+						},
+					},
+				});
+
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								playActiveSlideVideo(swiper);
+							} else {
+								stopActiveSlideVideo(swiper);
+							}
+						});
+					},
+					{
+						threshold: 0.5,
+					},
+				);
+
+				observer.observe(box);
+			}
+			if (box.classList.contains("designer__award__slider-photo")) {
+				const swiper = new Swiper(".slider-photo__container", {
+					spaceBetween: 0,
+					slidesPerView: 6.5,
+					simulateTouch: true,
+					loop: true,
+					breakpoints: {
+						// when window width is >= 320px
+						1000: {
+							slidesPerView: 6.5,
+						},
+						480: {
+							slidesPerView: "auto",
+						},
+					},
+				});
+			}
+			if (box.classList.contains("designer")) {
+				const projectCards = document.querySelectorAll(".designer__award");
+
+				projectCards.forEach((card) => {
+					const swiperContainer = card.querySelector(".designer__award__container");
+
+					if (swiperContainer) {
+						const swiper = new Swiper(swiperContainer, {
+							slidesPerView: 1,
+							spaceBetween: 10,
+							centeredSlides: true,
+							loop: false,
+							pagination: {
+								el: ".designer__award__pagination",
+								clickable: true,
+							},
+							on: {
+								slideChange: function (swiper) {
+									const allVideos = card.querySelectorAll("video");
+									allVideos.forEach((video) => {
+										video.pause();
+										video.currentTime = 0;
+									});
+
+									const activeSlide = swiper.slides[swiper.activeIndex];
+									const activeVideo = activeSlide.querySelector("video");
+
+									if (activeVideo && !activeVideo.src) {
+										activeVideo.src = activeVideo.dataset.src;
+										activeVideo
+											.play()
+											.catch((error) =>
+												console.error("Ошибка воспроизведения:", error),
+											);
+									}
+								},
+							},
+						});
+
+						card.addEventListener("mouseenter", () => {
+							const activeVideo = card.querySelector(".swiper-slide-active video");
+							if (activeVideo && !activeVideo.src) {
+								activeVideo.src = activeVideo.dataset.src;
+							}
+							activeVideo?.play();
+						});
+
+						card.addEventListener("mouseleave", () => {
+							const allVideos = card.querySelectorAll("video");
+							allVideos.forEach((video) => {
+								video.pause();
+								video.currentTime = 0;
+							});
+						});
+					} else {
+						card.addEventListener("mouseenter", () => {
+							const video = card.querySelector("video");
+							if (!video) return;
+							if (!video.src) {
+								video.src = video.dataset.src;
+							}
+							video.play();
+						});
+
+						card.addEventListener("mouseleave", () => {
+							const video = card.querySelector("video");
+							if (!video) return;
+							video.pause();
+							video.currentTime = 0;
+						});
+					}
+				});
+			}
 			if (box.classList.contains("creative-space")) {
 				const swiper = new Swiper(".creative-space__container", {
 					slidesPerView: getSlidesPerView(),
@@ -156,6 +298,39 @@ function animation() {
 	wow.init();
 }
 
+function playActiveSlideVideo(swiper) {
+	swiper.slides.forEach((slide, index) => {
+		const video = slide.querySelector("video");
+		const iframe = slide.querySelector("iframe");
+
+		if (index === swiper.activeIndex) {
+			if (video) {
+				if (video) {
+					video.src = video.getAttribute("data-src");
+				}
+				video.play().catch((err) => console.warn("Ошибка воспроизведения видео:", err));
+			}
+			if (iframe) {
+				const dataSrc = iframe.getAttribute("data-src");
+				// iframe.src = dataSrc + "&autoplay=1";
+				if (!iframe.src.includes("autoplay=1")) {
+					iframe.src = dataSrc.includes("?")
+						? dataSrc + "&autoplay=1"
+						: dataSrc + "?autoplay=1";
+				}
+			}
+		} else {
+			if (video) {
+				video.pause();
+				video.currentTime = 0;
+			}
+			if (iframe) {
+				iframe.src = iframe.src.replace("autoplay=1", "autoplay=0");
+			}
+		}
+	});
+}
+
 // Вспомогательная функция для определения количества слайдов на экране
 function getSlidesPerView() {
 	const screenWidth = window.innerWidth;
@@ -189,11 +364,20 @@ function handleSlideChange(swiper) {
 
 // Остановка видео на активном слайде при скрытии блока с экрана
 function stopActiveSlideVideo(swiper) {
+	if (!swiper || !swiper.slides || swiper.slides.length === 0) return;
 	const activeSlide = swiper.slides[swiper.activeIndex];
+	if (!activeSlide) return;
+
 	const iframe = activeSlide.querySelector(".video-iframe");
+	const video = activeSlide.querySelector(".showreel-video");
+	// const dataSrc = iframe ? iframe.getAttribute("data-src") : null;
 
 	if (iframe) {
-		iframe.src = "";
+		iframe.src = ""; // Очищаем src для отключения YouTube видео
+	}
+	if (video) {
+		video.pause();
+		video.src = ""; // Останавливаем и очищаем видео
 	}
 }
 
@@ -202,28 +386,70 @@ function animateSlider() {
 	const sliderInput = document.getElementById("sliderInput");
 	const rightValue = document.getElementById("rightValue");
 	const emojiImage = document.getElementById("emojiImage");
+	const emojiContainer = document.querySelector(".offer__slider__emoji");
+	const sliderBlock = document.querySelector(".offer__slider__values");
+
+	const leftValue = document.querySelector(".offer__slider__value-left");
+	const rightValueContainer = document.querySelector(".offer__slider__value-right");
 
 	let startValue = parseInt(sliderInput.value);
 	const endValue = parseInt(sliderInput.max);
+	const step = 50; // Скорость увеличения
 
-	// Анимация ползунка
+	function updateEmojiPosition() {
+		const min = parseInt(sliderInput.min);
+		const max = parseInt(sliderInput.max);
+		const sliderValue = parseInt(sliderInput.value);
+
+		// Обновляем картинку эмоджи
+		if (sliderValue >= 1000 && sliderValue < 2000) {
+			emojiImage.src = "./icons/offer/1-2.svg";
+		} else if (sliderValue >= 2000 && sliderValue < 5000) {
+			emojiImage.src = "./icons/offer/2-5.svg";
+		} else if (sliderValue >= 5000 && sliderValue < 7000) {
+			emojiImage.src = "./icons/offer/5-7.svg";
+		} else if (sliderValue >= 7000 && sliderValue <= 10000) {
+			emojiImage.src = "./icons/offer/7-10.svg";
+		}
+
+		rightValue.textContent = sliderValue.toLocaleString("en-US");
+
+		// Рассчитываем позиции
+		const paddingOffset = 10;
+		const leftOffset = leftValue.clientWidth + paddingOffset;
+		const rightOffset = rightValueContainer.clientWidth + paddingOffset;
+
+		let emojiPosition;
+
+		const emojiWidth = emojiImage.clientWidth;
+		const sliderWidth = sliderBlock.clientWidth - emojiImage.clientWidth;
+
+		// Позиция ползунка в пикселях
+		const sliderRatio = (sliderValue - min) / (max - min);
+		const thumbPosition = leftOffset + sliderRatio * sliderWidth;
+
+		// Если ползунок еще не дошел до текущей позиции смайлика — оставляем смайлик на месте
+		if (thumbPosition < leftOffset + emojiWidth * 2) {
+			emojiPosition = leftOffset; // начальная позиция (можно изменить)
+		}
+		// Иначе двигаем смайлик вместе с ползунком
+		else {
+			emojiPosition = thumbPosition - leftOffset;
+			console.log("emojiPosition", emojiPosition);
+		}
+
+		// Ограничиваем, чтобы смайлик не выходил за пределы
+		const maxEmojiPosition = sliderWidth - rightOffset;
+		emojiPosition = Math.min(emojiPosition, maxEmojiPosition);
+
+		emojiContainer.style.transform = `translateX(${emojiPosition}px)`;
+	}
+
 	function animate() {
 		if (startValue < endValue) {
-			startValue += 50; // скорость увеличения
+			startValue += step;
 			sliderInput.value = startValue;
-			rightValue.textContent = startValue.toLocaleString("en-US");
-
-			// Изменение изображения эмодзи
-			if (startValue >= 1000 && startValue < 2000) {
-				emojiImage.src = "./icons/offer/1-2.svg";
-			} else if (startValue >= 2000 && startValue < 5000) {
-				emojiImage.src = "./icons/offer/2-5.svg";
-			} else if (startValue >= 5000 && startValue < 7000) {
-				emojiImage.src = "./icons/offer/5-7.svg";
-			} else if (startValue >= 7000 && startValue <= 10000) {
-				emojiImage.src = "./icons/offer/7-10.svg";
-			}
-
+			updateEmojiPosition(startValue);
 			requestAnimationFrame(animate);
 		}
 	}
