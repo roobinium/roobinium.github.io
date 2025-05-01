@@ -15,6 +15,7 @@ import guarantee from "./modules/guarantee.js";
 import animation from "./modules/wow.js";
 import download from "./modules/download.js";
 import topProjects from "./modules/topProjects.js";
+import initDraggableGallery from "./modules/gallery.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	glitch();
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	animation();
 	download(".download__wrapper");
 	topProjects(".project-card");
+	initDraggableGallery();
 	counter(".user-trust__count");
 	designer(".designer__award__play");
 	initImageSwap();
