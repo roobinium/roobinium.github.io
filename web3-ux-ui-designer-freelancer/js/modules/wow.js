@@ -452,7 +452,6 @@ function animateSlider() {
 		// Иначе двигаем смайлик вместе с ползунком
 		else {
 			emojiPosition = thumbPosition - leftOffset;
-			console.log("emojiPosition", emojiPosition);
 		}
 
 		// Ограничиваем, чтобы смайлик не выходил за пределы
