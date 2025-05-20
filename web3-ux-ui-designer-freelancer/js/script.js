@@ -16,11 +16,13 @@ import animation from "./modules/wow.js";
 import download from "./modules/download.js";
 import topProjects from "./modules/topProjects.js";
 import initDraggableGallery from "./modules/gallery.js";
+import specialVideo from "./modules/special-video.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	glitch();
 	headerNav();
 	animation();
+	specialVideo();
 	download(".download__wrapper");
 	topProjects(".project-card");
 	initDraggableGallery();
