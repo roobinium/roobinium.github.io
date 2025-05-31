@@ -91,6 +91,9 @@ function initCustomImageSwap() {
 
         // Кэш для хранения информации о путях к изображениям
         const imagePathsCache = new Map();
+        
+        // Сохраняем оригинальную информацию о главном изображении
+        let originalMainImageInfo = null;
 
         /**
          * Извлекает и обрабатывает базовые пути к изображениям из элемента picture
@@ -129,11 +132,12 @@ function initCustomImageSwap() {
                     const mainImageInfo = extractImageInfo(mainPicture);
                     if (mainImageInfo) {
                         imagePathsCache.set(mainId, mainImageInfo);
+                        originalMainImageInfo = { ...mainImageInfo }; // Сохраняем оригинал
                         mainPicture.setAttribute("data-image-id", mainId);
                     }
                 }
 
-                // Сохраняем информацию для всех слайдов
+                // Сохраняем информацию для всех слайдов (оригинальные пути остаются неизменными)
                 slides.forEach((slide, index) => {
                     const slidePicture = slide.querySelector("picture");
                     if (slidePicture) {
@@ -183,9 +187,10 @@ function initCustomImageSwap() {
         };
 
         /**
-         * Обменивает изображения между главным элементом и выбранным слайдом
+         * Заменяет главное изображение на изображение из выбранного слайда
+         * Миниатюры остаются неизменными
          */
-        const swapImages = function(slideElement) {
+        const replaceMainImage = function(slideElement) {
             try {
                 // Находим элементы с изображениями
                 const mainPicture = mainPhotoElement.querySelector("picture");
@@ -196,31 +201,25 @@ function initCustomImageSwap() {
                     return;
                 }
 
-                // Получаем идентификаторы изображений
-                const mainImageId = mainPicture.getAttribute("data-image-id");
+                // Получаем идентификатор изображения слайда
                 const slideImageId = slidePicture.getAttribute("data-image-id");
 
-                if (!mainImageId || !slideImageId) {
-                    console.warn("Отсутствуют идентификаторы изображений");
+                if (!slideImageId) {
+                    console.warn("Отсутствует идентификатор изображения слайда");
                     return;
                 }
 
-                // Получаем информацию об изображениях из кэша
-                const mainImageInfo = { ...imagePathsCache.get(mainImageId) };
-                const slideImageInfo = { ...imagePathsCache.get(slideImageId) };
+                // Получаем информацию об изображении слайда из кэша
+                const slideImageInfo = imagePathsCache.get(slideImageId);
 
-                if (!mainImageInfo || !slideImageInfo) {
-                    console.warn("Отсутствует информация об изображениях в кэше");
+                if (!slideImageInfo) {
+                    console.warn("Отсутствует информация об изображении слайда в кэше");
                     return;
                 }
 
-                // Выполняем обмен данными в кэше
-                imagePathsCache.set(mainImageId, slideImageInfo);
-                imagePathsCache.set(slideImageId, mainImageInfo);
-
-                // Обновляем изображения после обмена данными в кэше
+                // Обновляем только главное изображение, используя данные из слайда
+                // Но НЕ изменяем данные в кэше для главного изображения
                 updateImage(mainPicture, slideImageInfo);
-                updateImage(slidePicture, mainImageInfo);
                 
                 // Добавляем класс для сохранения оригинального размера
                 const mainImg = mainPicture.querySelector("img");
@@ -228,7 +227,7 @@ function initCustomImageSwap() {
                     mainImg.classList.add("original-size-image");
                 }
             } catch (error) {
-                console.error("Ошибка при обмене изображениями:", error);
+                console.error("Ошибка при замене главного изображения:", error);
             }
         };
 
@@ -249,7 +248,7 @@ function initCustomImageSwap() {
                     }
                 }
 
-                // Обновляем все изображения в слайдах
+                // Обновляем все изображения в слайдах (они всегда остаются неизменными)
                 slides.forEach((slide) => {
                     const slidePicture = slide.querySelector("picture");
                     if (slidePicture) {
@@ -312,7 +311,7 @@ function initCustomImageSwap() {
                 // Добавляем обработчик события клика
                 newSlide.addEventListener("click", function(event) {
                     event.preventDefault();
-                    swapImages(this);
+                    replaceMainImage(this); // Используем новую функцию замены вместо обмена
                 });
                 
             } catch (error) {
