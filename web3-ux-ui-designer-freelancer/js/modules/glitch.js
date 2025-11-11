@@ -55,17 +55,18 @@ function glitch() {
 	}
 
 	function runGlitchToStart(el) {
-		if (!hasClass(el, "is-active") && hasClass(el, "is-used")) {
-			addClass(el, "is-active");
-			const firstState = el.dataset.firstimg;
-			const secondState = el.dataset.secondimg;
+	if (!hasClass(el, "is-active") && hasClass(el, "is-used")) {
+		addClass(el, "is-active");
+		const firstState = el.dataset.firstimg;
+		const secondState = el.dataset.secondimg;
+		const thirdState = el.dataset.thirdimg;
 
-			runGlitch(el, secondState, firstState, firstState, () => {
-				removeClass(el, "is-active");
-				toggleClass(el, "is-used");
-			});
-		}
+		runGlitch(el, thirdState, secondState, firstState, () => {
+			removeClass(el, "is-active");
+			toggleClass(el, "is-used");
+		});
 	}
+}
 
 	if (glitchList.length > 0) {
 		let sleep = 2000;

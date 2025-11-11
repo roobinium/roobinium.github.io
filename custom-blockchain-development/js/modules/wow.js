@@ -34,9 +34,11 @@ function animation() {
 			}
 
             if (box.classList.contains("footer")) {
-                setTimeout(() => {
-                    window.location.href = " https://roobinium.io/"; 
-                }, 500);
+                box.addEventListener('click', () => {
+                    setTimeout(() => {
+                        window.location.href = "https://roobinium.io/"; 
+                    }, 500);
+                });
             }
 
             if (box.classList.contains("tech-stack")) {
