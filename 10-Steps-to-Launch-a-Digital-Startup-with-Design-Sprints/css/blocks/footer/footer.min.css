@@ -1,1 +1,1 @@
-.footer{overflow:hidden;cursor:pointer}.footer img{display:block;width:100%;max-height:auto}
+.footer{overflow:hidden;cursor:pointer;position:relative}.footer img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover}.footer--mobile{display:none}.footer--desctop{display:block}.footer__buttons{display:none}
