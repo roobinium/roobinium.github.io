@@ -38,9 +38,13 @@ const ProfileMenuMobile = () => {
         overlay.classList.add('is-active');
         overlay.setAttribute('aria-hidden', 'false');
         
-        if (header) {
-            header.classList.add('overlay-hidden');
-        }
+        
+        setTimeout(() => {
+            if (header) {
+                header.classList.add('overlay-hidden');
+            }
+
+        }, 500);
 
         applyAnimation(overlayContainer, 'animate__fadeInUp', ['animate__fadeOutDown']);
         applyAnimation(overlay, 'animate__fadeInUp', ['animate__fadeOutDown']);
@@ -57,9 +61,7 @@ const ProfileMenuMobile = () => {
         setTimeout(() => {
             overlay.classList.remove('is-active');
             
-            if (header) {
-                header.classList.remove('overlay-hidden');
-            }
+            
 
             const bodyY = Math.abs(parseInt(body.style.top || '0'));
             body.style.position = '';
@@ -68,6 +70,9 @@ const ProfileMenuMobile = () => {
             window.scrollTo(0, bodyY);
 
         }, 500);
+        if (header) {
+            header.classList.remove('overlay-hidden');
+        }
     };
 
     const handleResize = () => {
