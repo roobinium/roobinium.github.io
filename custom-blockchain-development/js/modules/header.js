@@ -1,3 +1,12 @@
+function setRealViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setRealViewportHeight();
+window.addEventListener('resize', setRealViewportHeight);
+window.addEventListener('orientationchange', setRealViewportHeight);
+
 function headerNav() {
     let isBurgerOpen = false;
     let isToggleLangDesktopOpen = false;
@@ -34,26 +43,50 @@ function headerNav() {
         overlay.classList.toggle("active");
     }
 
+    function preventBodyScroll(e) {
+        const mobileMenu = document.querySelector(".header__nav");
+        if (!mobileMenu || !mobileMenu.contains(e.target)) {
+            e.preventDefault();
+        }
+    }
+
     function toggleNoScroll() {
     const header = document.querySelector('.header');
     const toggleLang = document.querySelector('.toggle-lang__desktop');
-    const burger = document.querySelector('.burger__wrapper');
+    const burgerWrapper = document.querySelector('.burger__wrapper');
     const button = document.querySelector('.header__button--wrapper');
-    
-    
+
+
     if (document.body.classList.contains("no-scroll")) {
         document.body.classList.remove("no-scroll");
         document.body.style.removeProperty('padding-right');
 
+        // Снимаем touchmove всегда
+        document.body.removeEventListener(
+            'touchmove',
+            preventBodyScroll,
+            { passive: false }
+        );
+
         if (header) header.style.removeProperty('padding-right');
         if (toggleLang) toggleLang.style.removeProperty('right');
-        if (burger) burger.style.removeProperty('right');
+        if (burgerWrapper) burgerWrapper.style.removeProperty('right');
         if (button) button.style.removeProperty('right');
-        
+
     } else {
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
         document.body.classList.add("no-scroll");
+
+        // ВАЖНО: блокируем touchmove ТОЛЬКО НА DESKTOP
+        if (!isMobileDevice()) {
+            document.body.addEventListener(
+                'touchmove',
+                preventBodyScroll,
+                { passive: false }
+            );
+        }
+
         if (header) {
             const currentPadding = parseInt(getComputedStyle(header).paddingRight) || 40;
             header.style.paddingRight = `${currentPadding + scrollbarWidth}px`;
@@ -66,9 +99,9 @@ function headerNav() {
             const currentRight = parseInt(getComputedStyle(toggleLang).right) || 88;
             toggleLang.style.right = `${currentRight + scrollbarWidth}px`;
         }
-        if (burger) {
-            const currentRight = parseInt(getComputedStyle(burger).right) || 40;
-            burger.style.right = `${currentRight + scrollbarWidth}px`;
+        if (burgerWrapper && !isMobileDevice()) {
+            const currentRight = parseInt(getComputedStyle(burgerWrapper).right) || 40;
+            burgerWrapper.style.right = `${currentRight + scrollbarWidth}px`;
         }
     }
 }
