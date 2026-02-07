@@ -235,10 +235,13 @@ function linkOnGlitch(){
     Array.from(glitchItemsList).forEach(function(item) {
         item.addEventListener('click', function(){
             if (item.dataset.href){
+                var url = item.dataset.href;
+                var isInternal = url.startsWith('/') || url.includes('roobinium.io');
+                
                 Object.assign(document.createElement('a'), {
-                    target: '_blank',
-                    rel: 'noopener noreferrer',
-                    href: item.dataset.href,
+                    target: isInternal ? '_self' : '_blank',
+                    rel: isInternal ? '' : 'noopener noreferrer',
+                    href: url,
                 }).click();
             }
         })
