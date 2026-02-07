@@ -238,6 +238,12 @@ function linkOnGlitch(){
                 var url = item.dataset.href;
                 var isInternal = url.startsWith('/') || url.includes('roobinium.io');
                 
+                console.log('🔗 Glitch click:', {
+                    url: url,
+                    isInternal: isInternal,
+                    target: isInternal ? '_self' : '_blank'
+                });
+                
                 Object.assign(document.createElement('a'), {
                     target: isInternal ? '_self' : '_blank',
                     rel: isInternal ? '' : 'noopener noreferrer',
