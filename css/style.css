@@ -955,4 +955,36 @@
     .dribbble-badge-wrap {
         display: none;
     }
+
+    #block-main-mobile {
+        position: relative;
+    }
+
+    .dribbble-badge-wrap-mobile {
+        position: absolute;
+        right: 42px;
+        top: 72px;
+        width: 106px;
+        z-index: 30;
+        pointer-events: none;
+    }
+
+    .dribbble-badge--mobile {
+        width: 106px;
+        left: auto;
+        top: 0;
+        right: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .dribbble-badge-wrap-mobile {
+        right: 30px;
+        top: 64px;
+        width: 98px;
+    }
+
+    .dribbble-badge--mobile {
+        width: 98px;
+    }
 }
