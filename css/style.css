@@ -902,18 +902,38 @@
 }
 
 /* Dribbble Select Badge */
+.dribbble-badge-wrap {
+    position: absolute;
+    /* Figma: left 561px on 1512px frame; header max-width 1320px centered at 96px offset
+       => badge left edge at 465px from header left = calc(50% - 81px - 114px) */
+    left: calc(50% - 81px - 230px);
+    top: 0;
+    width: 162px;
+    height: 96px;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 100;
+}
+
+
 .dribbble-badge {
     position: absolute;
-    width: 120px;
+    pointer-events: auto;
+    width: 162px;
     height: auto;
-    left: calc(50% - 60px - 114px);
-    top: 40px;
+    left: 0;
+    top: 35px;
     z-index: 100;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.dribbble-badge::before {
+    content: none !important;
 }
 
 .dribbble-badge:hover {
-    opacity: 0.9;
+    opacity: 0.85;
     transform: translateY(-3px);
 }
 
@@ -924,23 +944,14 @@
     filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* Responsive adjustments */
 @media (max-width: 991px) {
-    .dribbble-badge {
-        width: 100px;
-        left: 20px;
-        top: 25px;
-    }
-    
-    .dribbble-badge:hover {
-        transform: translateY(-2px);
+    .dribbble-badge-wrap {
+        display: none;
     }
 }
 
 @media (max-width: 575px) {
-    .dribbble-badge {
-        width: 80px;
-        top: 20px;
-        left: 15px;
+    .dribbble-badge-wrap {
+        display: none;
     }
 }
