@@ -901,13 +901,14 @@
     content: none;
 }
 
+/* Dribbble Select Badge - по макету */
 .dribbble-badge {
-    position: fixed;
+    position: absolute;
     width: 162px;
     height: 146px;
     left: calc(50% - 162px/2 - 114px);
     top: 35px;
-    z-index: 50;
+    z-index: 10;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
