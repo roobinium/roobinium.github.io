@@ -900,3 +900,47 @@
 .swiper-slide .section-subtitle a::before{
     content: none;
 }
+
+/* Dribbble Select Badge */
+.dribbble-badge {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    left: calc(50% - 60px - 114px);
+    top: 40px;
+    z-index: 100;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.dribbble-badge:hover {
+    opacity: 0.9;
+    transform: translateY(-3px);
+}
+
+.dribbble-badge img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .dribbble-badge {
+        width: 100px;
+        left: 20px;
+        top: 25px;
+    }
+    
+    .dribbble-badge:hover {
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 575px) {
+    .dribbble-badge {
+        width: 80px;
+        top: 20px;
+        left: 15px;
+    }
+}
