@@ -907,8 +907,8 @@
     /* Fixed left offset from header edge: aligns badge just right of the "7 Day Trial" block.
        Header max-width: 1320px. Container max-width: 1140px, centered (90px indent).
        "7 Day Trial" block is ~350px wide => badge starts at ~440px from header left. */
-    left: 50%;
-    transform: translateX(-220px);
+    left: max(16px, calc((100vw - 1320px) / 2 + 440px));
+    transform: none;
     top: 0;
     width: 162px;
     height: 96px;
@@ -948,7 +948,7 @@
 
 @media (max-width: 1199px) {
     .dribbble-badge-wrap {
-        transform: translateX(-280px);
+        left: max(16px, calc((100vw - 1140px) / 2 + 380px));
     }
 }
 
