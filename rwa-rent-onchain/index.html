@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RWA Real Estate Tokenization Platform: Rent Onchain Case Study</title>
+<meta name="description" content="Explore the full-cycle development of Rent Onchain, a Web3 platform for real estate tokenization. Architecture, smart contracts, and NFT marketplace on Polygon.">
+<meta name="keywords" content="rwa development, real estate tokenization, web3 development services, nft marketplace development, blockchain development company, solidity smart contracts, polygon blockchain development, rwa case study">
+<link rel="canonical" href="https://roobinium.io/rwa-rent-onchain/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RWA Real Estate Tokenization Platform: Rent Onchain Case Study">
+<meta property="og:description" content="Explore the full-cycle development of Rent Onchain, a Web3 platform for real estate tokenization. Architecture, smart contracts, and NFT marketplace on Polygon.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RWA Real Estate Tokenization Platform: Rent Onchain Case Study">
+<meta name="twitter:description" content="Explore the full-cycle development of Rent Onchain, a Web3 platform for real estate tokenization. Architecture, smart contracts, and NFT marketplace on Polygon.">
+<script>!function(e,t,a,n,g){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var m=t.getElementsByTagName(a)[0],r=t.createElement(a);r.async=!0,r.src="https://www.googletagmanager.com/gtm.js?id=GTM-MT8KQXB",m.parentNode.insertBefore(r,m)}(window,document,"script","dataLayer")</script>
+<script type="text/javascript">!function(e,t,a,n,c,m,r){e.ym=e.ym||function(){(e.ym.a=e.ym.a||[]).push(arguments)},e.ym.l=1*new Date,m=t.createElement(a),r=t.getElementsByTagName(a)[0],m.async=1,m.src="https://mc.yandex.ru/metrika/tag.js",r.parentNode.insertBefore(m,r)}(window,document,"script"),ym(51598715,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0})</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51598715" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<meta name="yandex-verification" content="fe2bf4fab5f1c432">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+<link rel="manifest" href="./img/favicon/site.webmanifest">
+<link rel="stylesheet" href="./css/styles.min.css">
+<style>
+@media (min-width:769px){
+  .hero .content{padding-top:48px;}
+  .hero .content__title{margin-bottom:40px;}
+  .hero .content__subtitle{margin-bottom:40px;}
+  .hero .content__description--desctop{display:block;font-size:20px;line-height:32px;font-weight:500;margin:0;}
+  .hero .content__description--mobile{display:none;}
+  .hero .buttons{margin-top:48px!important;}
+  .hero .card__image{height:526px!important;}
+  .hero .card::before{height:576px!important;background-size:cover!important;}
+  .hero .price{top:auto!important;bottom:40px!important;left:40px!important;align-items:flex-start!important;gap:32px!important;}
+  .hero .price span{top:31px!important;left:238px!important;width:150.56px!important;border-width:4px!important;transform:rotate(-4.95deg)!important;}
+}
+@media (max-width:768px){
+  .hero .content__description--desctop{display:none!important;}
+  .hero .content__description--mobile{display:block;font-size:16px;line-height:24px;margin:0;}
+  .hero .buttons{margin-top:32px!important;}
+}
+@media (max-width:450px){
+  .hero .content__description--mobile{display:none!important;}
+}
+@media (max-width:768px){
+  .header{
+    min-height:calc(88px + env(safe-area-inset-top,0px))!important;
+    height:auto!important;
+  }
+  .header__logo{
+    position:absolute!important;
+    left:16px!important;
+    top:calc(env(safe-area-inset-top,0px) + 50px)!important;
+    margin:0!important;
+    z-index:130;
+  }
+  .burger__wrapper{
+    top:calc(env(safe-area-inset-top,0px) + 44px)!important;
+    right:12px!important;
+    width:40px!important;
+    height:40px!important;
+    background:rgba(224,224,255,0.08)!important;
+    border-radius:9999px!important;
+  }
+  .header__nav{
+    top:calc(88px + env(safe-area-inset-top,0px))!important;
+    height:calc(var(--vh)*100 - 88px - env(safe-area-inset-top,0px))!important;
+  }
+  .hero .content{
+    padding:calc(108px + env(safe-area-inset-top,0px)) 0 36px!important;
+  }
+  .main-board__header h1{
+    margin-top:24px!important;
+  }
+}
+/* Line under hero */
+.divider{display:block;width:100%;height:0;margin:0;padding:0;border:none;border-top:1px solid rgba(255,255,255,0.24);}
+/* Typography overrides */
+.main-board__header .subtitle{font-style:italic;font-weight:600;font-size:36px;line-height:56px;color:rgba(255,255,255,0.76);}
+.exercise .title{font-style:italic;}
+/* Bullet lists — 12px #FF005B circle, gap:8px items, gap:12px bullet-to-text */
+.list:not(.list--number){list-style:none;padding-left:0!important;display:flex;flex-direction:column;gap:8px;margin:0;}
+.list:not(.list--number) li{display:flex;align-items:flex-start;gap:12px;padding:0!important;margin:0!important;font-size:18px;line-height:28px;position:static;}
+.list:not(.list--number) li::before{content:'';position:static!important;display:block;min-width:12px;width:12px;height:12px;margin:0;flex-shrink:0;background:#FF005B!important;border-radius:50%;align-self:flex-start;margin-top:8px;}
+.list--number{list-style:none;padding-left:0!important;display:flex;flex-direction:column;gap:24px;margin:0;counter-reset:list-counter 0;font-family:Montserrat,sans-serif;}
+.list--number>li{display:block;padding-left:36px!important;margin:0!important;font-family:Montserrat,sans-serif;font-weight:500;font-size:18px;line-height:28px;color:#fff;position:relative;}
+.list--number>li::before{counter-increment:list-counter 1;content:counter(list-counter)".";background:transparent!important;border-radius:0!important;position:absolute!important;top:0!important;left:0!important;width:24px!important;height:auto!important;min-width:auto!important;margin:0!important;font-family:Montserrat,sans-serif;font-weight:500;font-size:18px;line-height:28px;color:#fff;text-align:right;}
+.left-column .exercise{height:auto!important;width:100%;max-width:792px;box-sizing:border-box;padding:40px!important;margin-top:48px!important;margin-bottom:48px!important;}
+.exercise .block{display:flex;flex-direction:column;gap:32px;}
+.exercise h2.title{margin:0!important;font-family:Montserrat,sans-serif;font-style:italic;font-weight:700;font-size:36px;line-height:44px;color:#fff;}
+.exercise .exercise-followup{margin:0!important;font-family:Montserrat,sans-serif;font-weight:500;font-size:18px;line-height:28px;color:#fff;}
+@media (max-width:900px){
+  .left-column .exercise{padding:32px 28px!important;}
+}
+@media (max-width:768px){
+  .left-column .exercise{padding:32px 24px!important;}
+}
+/* Nested bullet list inside numbered item — don't increment parent counter */
+.list--number>li .list:not(.list--number){margin-top:8px;}
+.list--number .list:not(.list--number) li::before{counter-increment:none!important;}
+/* Re-enforce responsive show/hide */
+.list.text--mobile{display:none!important;}
+.list.text--desctop:not(.list--number){display:flex!important;}
+.list--number.text--desctop{display:flex!important;}
+@media(max-width:500px){
+  .list.text--mobile{display:flex!important;}
+  .list--number.text--mobile{display:flex!important;}
+  .list.text--desctop,
+  .list.text--desctop:not(.list--number),
+  .list--number.text--desctop{display:none!important;}
+  /* Pull nested bullet list out of numbered item's 36px indent — bullets align with "3." digit (Figma 343px width) */
+  .list--number>li .list:not(.list--number){margin-left:-36px!important;}
+}
+/* Intro text gap before cover */
+.left-column > .text__wrapper{margin-bottom:48px;}
+.left-column p.text{margin-top:0;margin-bottom:24px;}
+.left-column .paragraph ol.list,
+.left-column .paragraph ul.list{margin-top:0;margin-bottom:24px!important;}
+.left-column p.text + .rwa-carousel{margin-top:48px;}
+.left-column .rwa-carousel + .rwa-carousel{margin-top:48px;}
+.left-column h3{margin-top:48px;margin-bottom:24px;}
+.left-column .paragraph h2.title + h3{margin-top:32px;}
+/* Promo panel links */
+.rwa-panel-link{display:block;font-family:Montserrat,sans-serif;font-weight:600;font-size:24px;line-height:36px;text-decoration:underline;color:#00FFFB;}
+.rwa-panel-link:hover{opacity:.8;color:#00FFFB;}
+.left-column .promo-block--rwa-websites .websites-links{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.left-column .promo-block--rwa-websites .rwa-panel-link{position:relative;z-index:1;}
+.websites-goals-title{
+  margin-top:48px!important;
+  margin-bottom:0;
+}
+.websites-goals-title + .list{
+  margin-top:0;
+}
+.rwa-carousel{width:100%;border-radius:10px;overflow:hidden;position:relative;}
+.rwa-carousel .swiper-slide{border-radius:10px;overflow:hidden;}
+.rwa-carousel .swiper-slide img{width:100%;height:auto;display:block;border-radius:10px;}
+.rwa-carousel .slide-ph{width:100%;height:528px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-size:13px;color:rgba(255,255,255,.25);}
+.rwa-carousel--results .slide-ph{height:594px;}
+.rwa-carousel .swiper-button-next,
+.rwa-carousel .swiper-button-prev{color:#fff!important;}
+.swiper-pagination-bullet-active{background:#ff005b!important;}
+.img-ph{width:100%;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-size:13px;color:rgba(255,255,255,.25);}
+.img-ph--cover{height:528px;}
+.img-ph--team{height:726px;}
+/* Team scroller: full-width image on desktop, horizontal scroll on mobile */
+.team-scroller{margin-top:48px;width:100%;border-radius:10px;overflow:hidden;}
+.team-scroller__img{width:100%;height:auto;display:block;border-radius:10px;}
+@media(max-width:500px){
+  .team-scroller{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;border-radius:0;margin-left:-16px;margin-right:-16px;width:calc(100% + 32px);padding:0 16px;box-sizing:content-box;}
+  .team-scroller__img,.team-scroller picture{display:block;}
+  .team-scroller__img{width:auto;max-width:none;height:auto;border-radius:10px;}
+}
+/* Solution decorative quote (Figma decoration-quote) */
+.paragraph--solution{position:relative;}
+.paragraph--solution>.title{position:relative;}
+.paragraph--solution>.title::before{content:"";display:block;width:150px;height:67px;margin-bottom:12px;background:url(./img/main-board/quote.png) no-repeat left top/contain;opacity:.85;}
+@media(max-width:500px){
+  .paragraph--solution>.title::before{width:120px;height:54px;margin-left:-14px;}
+}
+.pipe-table{width:100%;background:rgba(255,255,255,.06);border-radius:12px;overflow:hidden;border-collapse:collapse;}
+.pipe-table th{padding:12px 16px;font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,.5);text-align:left;border-bottom:1px solid rgba(255,255,255,.1);}
+.pipe-table td{padding:14px 16px;font-family:Montserrat,sans-serif;font-size:14px;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.06);}
+.pipe-table tr:last-child td{border-bottom:none;}
+.pipe-table td:first-child{color:#fff;font-weight:500;}
+.pipe-cards{display:none;}
+@media (max-width:768px){
+  .pipe-table{display:none!important;}
+  .pipe-cards{
+    display:flex!important;
+    flex-direction:column;
+    gap:24px;
+    width:100%;
+    margin-top:16px;
+  }
+  .pipe-card{
+    width:100%;
+    border-radius:12px;
+    overflow:hidden;
+    background:rgba(255,255,255,.08);
+  }
+  .pipe-card__title{
+    height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 16px;
+    font-family:Montserrat,sans-serif;
+    font-weight:500;
+    font-size:20px;
+    line-height:28px;
+    color:#fff;
+    text-align:center;
+    background:rgba(255,255,255,.04);
+  }
+  .pipe-card__list{
+    margin:0;
+    padding:18px 16px 20px;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .pipe-card__list li{
+    margin:0;
+    font-family:Montserrat,sans-serif;
+    font-weight:500;
+    font-size:18px;
+    line-height:28px;
+    color:#fff;
+    text-align:center;
+  }
+}
+/* text__wrapper full-width */
+.text__wrapper{width:100%!important;}
+/* Slightly taller top sidebar card for clean fit (desktop only) */
+@media (min-width:769px){
+  .right-column .profile-card:not(.profile-card__portfolio){
+    min-height:504px;
+    height:auto;
+  }
+}
+@media (max-width:768px){
+  .right-column .profile-card:not(.profile-card__portfolio){
+    min-height:0!important;
+    height:auto!important;
+  }
+}
+/* Bold labels in article per Figma body-bold spec (font-weight:800) */
+.left-column strong{font-weight:800;}
+/* Logo watermark in second block */
+.main-board__header--bg{
+  position:absolute!important;
+  left:auto!important;
+  right:180px!important;
+  top:420px!important;
+  width:494px!important;
+  height:494px!important;
+}
+.main-board__header--bg img{
+  opacity:.8;
+  mix-blend-mode:screen;
+  filter:brightness(.55);
+}
+.main-board__header--bg::before{display:none!important;}
+/* Mobile pixel-tuning for tags and carousels */
+@media (max-width:500px){
+  .main-board__container{
+    max-width:375px;
+    padding-left:16px;
+    padding-right:16px;
+    box-sizing:border-box;
+  }
+  .main-board__header{
+    min-height:auto;
+    padding-bottom:24px;
+  }
+  .main-board__header--desctop{
+    display:none!important;
+  }
+  .main-board__header--mobile{
+    display:block!important;
+    font-family:DrukWideCyr-Super,sans-serif;
+    font-weight:1000;
+    font-size:24px;
+    line-height:32px;
+    text-transform:uppercase;
+  }
+  .main-board__header .subtitle{
+    font-size:20px;
+    line-height:36px;
+  }
+  .main-board__header--bg{
+    width:250px!important;
+    height:250px!important;
+    left:168px!important;
+    right:auto!important;
+    top:64px!important;
+  }
+
+  .tags-search{
+    width:343px;
+    margin:32px auto 0;
+  }
+  .tags-search__title{
+    font-size:36px;
+    line-height:44px;
+    font-weight:700;
+  }
+  .tags-search__grid{
+    row-gap:12px;
+    column-gap:8px;
+  }
+  .tags-search__tag,
+  .tags-search__toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height:32px;
+    padding:8px 12px;
+    border-radius:9999px;
+    font-family:Montserrat,sans-serif;
+    font-weight:600;
+    font-size:14px;
+    line-height:24px;
+  }
+  .tags-search__tag{
+    background:rgba(255,255,255,.06);
+  }
+  .tags-search__toggle{
+    padding:8px 16px;
+    background:rgba(255,255,255,.32);
+  }
+
+  .left-column .promo-block--rwa-websites .rwa-panel-link{
+    font-size:20px;
+    line-height:32px;
+  }
+
+  .rwa-carousel{
+    overflow:visible;
+    margin-left:0;
+    margin-right:0;
+    margin-top:24px;
+    margin-bottom:32px;
+    padding-bottom:64px;
+  }
+  .rwa-carousel .swiper-wrapper{
+    align-items:center;
+  }
+  .rwa-carousel .swiper-pagination{
+    display:none!important;
+  }
+  .rwa-carousel .swiper-button-prev,
+  .rwa-carousel .swiper-button-next{
+    width:40px;
+    height:40px;
+    top:auto;
+    bottom:0;
+    margin-top:0;
+    color:#fff!important;
+    background:rgba(0,0,0,.2);
+    border-radius:54px;
+  }
+  .rwa-carousel .swiper-button-prev{
+    left:calc(50% - 48px);
+  }
+  .rwa-carousel .swiper-button-next{
+    right:calc(50% - 48px);
+  }
+  .rwa-carousel .swiper-button-prev:after,
+  .rwa-carousel .swiper-button-next:after{
+    font-size:16px;
+    font-weight:700;
+  }
+
+  .swiper-uikit .swiper-slide{
+    width:320px!important;
+  }
+  .swiper-uikit{
+    min-height:268px;
+  }
+  .swiper-uikit .swiper-slide img{
+    width:320px;
+    height:212px;
+    object-fit:cover;
+  }
+
+  .swiper-process .swiper-slide,
+  .swiper-results .swiper-slide{
+    width:343px!important;
+    opacity:.25;
+    transition:opacity .25s ease;
+  }
+  .swiper-process .swiper-slide.swiper-slide-active,
+  .swiper-results .swiper-slide.swiper-slide-active{
+    opacity:1;
+  }
+  .swiper-process{
+    margin-top:8px;
+    min-height:285px;
+  }
+  .swiper-process .swiper-slide img{
+    width:343px;
+    height:229px;
+    object-fit:cover;
+  }
+  .swiper-results{
+    margin-top:8px;
+    min-height:313px;
+  }
+  .swiper-results .swiper-slide img{
+    width:343px;
+    height:257px;
+    object-fit:cover;
+  }
+
+  .pipe-table{
+    display:none;
+  }
+  .pipe-cards{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    width:100%;
+    margin-top:16px;
+  }
+  .pipe-card{
+    width:100%;
+    border-radius:12px;
+    overflow:hidden;
+    background:rgba(255,255,255,.08);
+  }
+  .pipe-card__title{
+    height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 16px;
+    font-family:Montserrat,sans-serif;
+    font-weight:500;
+    font-size:20px;
+    line-height:28px;
+    color:#fff;
+    text-align:center;
+    background:rgba(255,255,255,.04);
+  }
+  .pipe-card__list{
+    margin:0;
+    padding:18px 16px 20px;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .pipe-card__list li{
+    margin:0;
+    font-family:Montserrat,sans-serif;
+    font-weight:500;
+    font-size:18px;
+    line-height:28px;
+    color:#fff;
+    text-align:center;
+  }
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MT8KQXB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header class="header">
+  <div class="menu-gradient"></div>
+  <a href="https://roobinium.io" class="header__logo" style="gap:8px;">
+    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <path d="M20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M15.141 36.2699C8.11519 34.1444 3 27.6196 3 19.9C3 10.456 10.6559 2.80005 20.1 2.80005C26.3586 2.80005 31.8318 6.1623 34.8121 11.179H20.613C17.5909 11.179 15.141 13.6289 15.141 16.651V36.2699ZM20.613 13.744C19.0075 13.744 17.706 15.0456 17.706 16.651V36.8338C18.4883 36.9434 19.2875 37 20.1 37C29.5441 37 37.2 29.3441 37.2 19.9C37.2 17.7299 36.7957 15.6542 36.0584 13.744H20.613ZM34.977 19.9C34.977 28.1164 28.3163 34.777 20.1 34.777C20.043 34.777 19.986 34.7767 19.929 34.7761V16.651C19.929 16.2733 20.2352 15.967 20.613 15.967H34.4522C34.7989 17.2354 34.977 18.5545 34.977 19.9ZM20.613 8.95605C16.3632 8.95605 12.918 12.4012 12.918 16.651V32.9343C8.26985 30.3711 5.223 25.4321 5.223 19.9C5.223 11.6837 11.8837 5.02305 20.1 5.02305C23.9198 5.02305 27.4868 6.47354 30.1803 8.95605H20.613Z" fill="black"/>
+    </svg>
+    <span style="font-family:'Zen Dots',cursive;font-size:20px;line-height:1;color:#fff;letter-spacing:-1px;">vino_costa</span>
+  </a>
+  <div class="burger__wrapper"><div class="burger"><span></span></div></div>
+  <div class="toggle-lang__wrapper toggle-lang__desktop">
+    <div class="toggle-lang">
+      <p class="toggle-lang__item toggle-lang__item-main">EN<img src="./icons/header/chevron_down.svg" alt="arrow"></p>
+      <p class="toggle-lang__item">EN</p>
+    </div>
+  </div>
+  <nav class="header__nav">
+    <a href="https://roobinium.io/" class="header__nav-item col1">Home</a>
+    <a href="https://roobinium.io/web3-branding-crypto-fintech-game" class="header__nav-item col1">Brand</a>
+    <a href="https://roobinium.io/projects.html" class="header__nav-item col1">Projects</a>
+    <a href="https://roobinium.io/10-Steps-to-Launch-a-Digital-Startup-with-Design-Sprints/" class="header__nav-item col1">Articles</a>
+    <a class="header__nav-item col2 col2-item1" href="https://roobinium.io/web3-ux-ui-designer-freelancer">Design Support</a>
+    <a class="header__nav-item col2 col2-item2" href="https://roobinium.io/custom-blockchain-development/">Blockchain Dev</a>
+    <a class="header__nav-item col2 col2-item3" href="https://roobinium.io/hire-3d-designer-outstaffing">Illustration, 2D &amp; 3D</a>
+    <a class="header__nav-item col2 col2-item4" href="https://linktr.ee/roobinium"><p>Contacts</p></a>
+    <div class="toggle-lang__wrapper toggle-lang__mobile">
+      <div class="toggle-lang">
+        <p class="toggle-lang__item toggle-lang__item-main">EN<img src="./icons/header/chevron_down.svg" alt="arrow"></p>
+        <p class="toggle-lang__item">EN</p>
+      </div>
+    </div>
+    <div class="header__nav-img">
+      <a href="https://roobinium.io/web3-ux-ui-designer-freelancer/" class="header__nav-img__wrapper">
+        <p>@vinocostaweb3</p>
+        <a href="https://roobinium.io/web3-ux-ui-designer-freelancer/" class="header__nav-img__btn">Visit</a>
+      </a>
+    </div>
+    <span></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero__container">
+    <div class="hero__content">
+      <div class="card card--desctop">
+        <div class="card__image"><img src="./img/hero/bg.jpg" alt="man"></div>
+        <div class="price">
+          <div><div class="price__label">Trial Week:</div><div class="price__current">$997</div></div>
+          <div><div class="price__regular-lable">Regular Price:</div><div class="price__regular">$1,497</div><span></span></div>
+        </div>
+      </div>
+      <div class="content">
+        <h2 class="content__title content__title--desctop">SENIOR UX/UI DESIGNER<br>WEEKLY DESIGN<br>SUPPORT FOR STARTUPS</h2>
+        <h2 class="content__title content__title--mobile">SENIOR UX/UI DESIGNER DESIGN<br>SUPPORT FOR STARTUPS</h2>
+        <h2 class="content__subtitle">Launch Your Startup Design ⚡️</h2>
+        <p class="content__description content__description--desctop">Get a Senior UX/UI Designer fully focused on your<br class="toggle-lang">product for one week. In just 7 days, I'll run a<br class="toggle-lang">complete design sprint: user flows, clickable<br class="toggle-lang">prototypes, and stunning UI that attracts investors and users.<br class="toggle-lang"></p>
+        <p class="content__description content__description--mobile">Get a Senior UX/UI Designer for a full 7-day sprint. Clean flows, prototypes, stunning UI.</p>
+        <div class="blur"></div>
+        <div class="card card--mobile">
+          <div class="card__image"></div>
+          <div class="price">
+            <div>
+              <div class="price__regular-lable">Regular Price:</div>
+              <div class="price__regular">$1,497</div>
+              <span></span>
+            </div>
+            <div>
+              <div class="price__label">Trial Week:</div>
+              <div class="price__current">$997</div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <a href="https://dribbble.com/services/111642-UX-UI-DESIGNER-WEEKLY-DESIGN-SUPPORT" target="_blank" class="button button--primary"><span class="button__full-text">Start Trial Week</span><span class="button__short-text">Trial Week</span></a>
+          <a href="https://roobinium.io/projects.html" target="_blank" class="button button--secondary"><span class="button__full-text">View Portfolio</span><span class="button__short-text">Portfolio</span><img src="./icons/hero/->.svg" alt="->"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<span class="divider" role="presentation"></span>
+
+<main class="main-board">
+  <div class="main-board__container">
+
+    <div class="main-board__header">
+      <h1>
+        <span class="main-board__header--blur"></span>
+        <p class="main-board__header--desctop">How We Launched<br>a Blockchain<br>Timesharing Platform<br>Using the RWA Model —<br>Rent Onchain</p>
+        <p class="main-board__header--mobile">How We<br>Launched<br>a Blockchain<br>Timesharing<br>Platform<br>Using the RWA<br>Model — Rent<br>Onchain</p>
+      </h1>
+      <p class="subtitle">A case study on real estate asset tokenization</p>
+      <div class="main-board__header--bg"><img src="./img/main-board/logo-roobinium.png" alt="logo"></div>
+    </div>
+
+    <div class="profile-trigger">
+      <div class="profile-trigger__content">
+        <img class="profile-trigger__avatar" src="./img/profile-card/avatar.jpg" alt="avatar">
+        <div class="profile-trigger__info"><span class="profile-trigger__label">author</span> <span class="profile-trigger__username">@vino_costa</span></div>
+      </div>
+      <div class="profile-trigger__button" id="openProfileOverlay" aria-label="Open profile menu">More</div>
+      <a href="https://vino_costa.dribbble.com/" target="_blank" class="button button--secondary"><img src="./icons/profile-card/Dribbble.svg" alt="Dribbble"></a>
+    </div>
+
+    <section class="right-column">
+      <div class="profile-overlay">
+        <div class="profile-overlay__container">
+          <div class="profile-card__wrapper">
+            <div class="profile-card">
+              <div class="profile-card__header">
+                <img class="profile-card__avatar" src="./img/profile-card/avatar.jpg" alt="avatar">
+                <div class="profile-card__info">
+                  <p class="profile-card__username">@vino_costa<img src="./icons/profile-card/logo-roobinium.svg" alt="roobinium"></p>
+                  <p class="profile-card__position">Art Director &amp; Founder</p>
+                  <a href="http://roobinium.io/" target="_blank" class="profile-card__link">roobinium design studio</a>
+                </div>
+              </div>
+              <div class="profile-card__service">Senior UX/UI Designer Weekly Design Support for Startups</div>
+              <a href="https://dribbble.com/services/111642-UX-UI-DESIGNER-WEEKLY-DESIGN-SUPPORT" target="_blank" class="button button--primary">Try Now just for $997</a>
+              <div class="profile-card__social">
+                <a href="https://vino_costa.dribbble.com/" target="_blank" class="profile-card__social-link profile-card__social--dribbble"><img src="./icons/profile-card/Dribbble.svg" alt="Dribbble"><p>Dribbble</p></a>
+                <a href="https://t.me/vino_costa" target="_blank" class="profile-card__social-link profile-card__social--telegram"><img src="./icons/profile-card/Telegram.svg" alt="Telegram"><p>Telegram</p></a>
+                <div type="button" class="profile-card__social-link profile-card__social--email" onclick="copyEmail()"><img src="./icons/profile-card/Email.svg" alt="Email"><p>E-mail</p></div>
+                <a href="https://www.instagram.com/vinocostaweb3/" target="_blank" class="profile-card__social-link profile-card__social--instagram"><img src="./icons/profile-card/Instagram.svg" alt="Instagram"><p>Instagram</p></a>
+              </div>
+            </div>
+            <div class="profile-card profile-card__portfolio">
+              <div class="profile-card__portfolio-wrapper">
+                <div class="profile-card__portfolio-item frame1"><img src="./img/profile-card/dribbble1.jpg" alt="Frame1"></div>
+                <div class="profile-card__portfolio-item frame2"><img src="./img/profile-card/dribbble2.jpg" alt="Frame2"></div>
+                <div class="profile-card__portfolio-item frame3"><img src="./img/profile-card/dribbble3.jpg" alt="Frame3"></div>
+              </div>
+              <div class="follow-section">
+                <div class="follow-section__info">
+                  <div class="profile-card__username">@vino_costa</div>
+                  <p>66,481 followers</p>
+                </div>
+                <a href="https://vino_costa.dribbble.com/" target="_blank" class="button button--secondary"><img src="./icons/profile-card/Dribbble.svg" alt="Dribbble"> Follow</a>
+              </div>
+            </div>
+          </div>
+          <div class="profile-trigger__button" id="closeProfileOverlay">Hide About the Author <img src="./icons/header/chevron_down.svg" alt="chevron_down"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="left-column">
+
+      <!-- INTRODUCTION -->
+      <div class="text text__wrapper">
+        <p class="text text--desctop">A full-cycle development of the Rent Onchain platform — how Roobinium acted as a product team building an NFT marketplace.</p>
+        <p class="text text--mobile">A full-cycle development of the Rent Onchain platform — how Roobinium acted as a product team building an NFT marketplace.</p>
+      </div>
+
+      <!-- Cover image -->
+      <img src="./img/main-board/06_cover.png.png" alt="Rent Onchain cover" style="width:100%;border-radius:10px;display:block;">
+
+      <!-- ABOUT THE PROJECT -->
+      <div class="paragraph">
+        <h2 class="title">About the Project</h2>
+        <p class="text text--desctop">Rent Onchain is a startup at the intersection of real estate, Web3, and RWA. At its core is a timesharing platform and an NFT marketplace built on the Polygon blockchain.</p>
+        <p class="text text--mobile">Rent Onchain is a startup at the intersection of real estate, Web3, and RWA. At its core is a timesharing platform and an NFT marketplace built on the Polygon blockchain.</p>
+        <br>
+        <p class="text text--desctop">The main idea and mission of the project is to democratize real estate investments and simplify market entry through tokenization of usage rights and a transparent blockchain infrastructure.</p>
+        <p class="text text--mobile">The main idea and mission of the project is to democratize real estate investments and simplify market entry through tokenization of usage rights and a transparent blockchain infrastructure.</p>
+      </div>
+
+      <!-- OBJECTIVES -->
+      <div class="paragraph">
+        <h2 class="title">Objectives</h2>
+        <ol class="list list--number text text--desctop">
+          <li>Develop branding and a full identity system</li>
+          <li>Design a scalable architecture for a Web3 platform</li>
+          <li>Create UX/UI for:
+            <ul class="list" style="margin-top:8px;">
+              <li>timesharing platform</li>
+              <li>NFT marketplace</li>
+              <li>landing pages</li>
+              <li>mobile application</li>
+              <li>user dashboard</li>
+            </ul>
+          </li>
+          <li>Implement the frontend using React / Next.js</li>
+          <li>Integrate smart contracts (Solidity)</li>
+          <li>Prepare the platform for full-scale launch</li>
+        </ol>
+        <ol class="list list--number text text--mobile">
+          <li>Develop branding and a full identity system</li>
+          <li>Design a scalable architecture for a Web3 platform</li>
+          <li>Create UX/UI for:
+            <ul class="list" style="margin-top:8px;">
+              <li>timesharing platform</li>
+              <li>NFT marketplace</li>
+              <li>landing pages</li>
+              <li>mobile application</li>
+              <li>user dashboard</li>
+            </ul>
+          </li>
+          <li>Implement the frontend using React / Next.js</li>
+          <li>Integrate smart contracts (Solidity)</li>
+          <li>Prepare the platform for full-scale launch</li>
+        </ol>
+      </div>
+
+      <!-- TEAM -->
+      <div class="paragraph">
+        <h2 class="title">Team</h2>
+        <p class="text">The project involved a cross-functional team of specialists.</p>
+        <div class="team-scroller">
+          <picture>
+            <source media="(max-width:500px)" type="image/svg+xml" srcset="./img/main-board/team1.svg">
+            <img src="./img/main-board/team.png" alt="Team" class="team-scroller__img">
+          </picture>
+        </div>
+      </div>
+
+      <!-- SOLUTION -->
+      <div class="paragraph paragraph--solution">
+        <h2 class="title">Solution</h2>
+
+        <!-- 1. Product Analytics & Design -->
+        <h3>1. Product Analytics &amp; Design</h3>
+        <p class="text">We deliberately avoid creating bulky 100-page specifications. Instead, before development starts, we prepare a compact yet effective documentation package aligning product, design, and engineering.</p>
+        <br>
+        <p class="text"><strong>At the core is a PRD (Product Requirements Document) of 10–20 pages, covering:</strong></p>
+        <ul class="list text text--desctop">
+          <li>product goals</li>
+          <li>target audience</li>
+          <li>key scenarios (investing, issuing tokenized assets, secondary market, asset management)</li>
+          <li>regulatory and jurisdictional constraints</li>
+          <li>KPIs</li>
+        </ul>
+        <ul class="list text text--mobile">
+          <li>product goals</li>
+          <li>target audience</li>
+          <li>key scenarios (investing, issuing tokenized assets, secondary market, asset management)</li>
+          <li>regulatory and jurisdictional constraints</li>
+          <li>KPIs</li>
+        </ul>
+        <br>
+        <p class="text">This document sets boundaries and supports decision-making throughout development.</p>
+        <br>
+        <p class="text"><strong>In parallel, we design detailed user flows:</strong></p>
+        <ul class="list text text--desctop">
+          <li>registration</li>
+          <li>verification</li>
+          <li>purchasing RWA assets</li>
+          <li>portfolio management</li>
+          <li>withdrawals</li>
+          <li>reporting</li>
+        </ul>
+        <ul class="list text text--mobile">
+          <li>registration</li>
+          <li>verification</li>
+          <li>purchasing RWA assets</li>
+          <li>portfolio management</li>
+          <li>withdrawals</li>
+          <li>reporting</li>
+        </ul>
+        <br>
+        <p class="text">These flows help visualize the system holistically and identify bottlenecks before coding begins.</p>
+        <br>
+        <p class="text"><strong>We started with product discovery:</strong></p>
+        <ul class="list text text--desctop">
+          <li>defined key user scenarios</li>
+          <li>structured the platform architecture</li>
+          <li>mapped user journeys</li>
+          <li>identified critical trust points (transaction confirmations, NFT ownership transparency, yield visibility)</li>
+        </ul>
+        <ul class="list text text--mobile">
+          <li>defined key user scenarios</li>
+          <li>structured the platform architecture</li>
+          <li>mapped user journeys</li>
+          <li>identified critical trust points (transaction confirmations, NFT ownership transparency, yield visibility)</li>
+        </ul>
+
+        <div class="exercise">
+          <div class="block">
+            <h2 class="title">Two primary audience segments were identified:</h2>
+            <ol class="list list--number">
+              <li>real estate investors</li>
+              <li>timesharing users</li>
+            </ol>
+            <p class="text exercise-followup">Each segment received tailored entry, purchase, and asset management flows.</p>
+          </div>
+        </div>
+
+        <!-- 2. UX Architecture -->
+        <h3>2. UX Architecture</h3>
+        <p class="text"><strong>We designed:</strong></p>
+        <ul class="list text">
+          <li>NFT marketplace structure</li>
+          <li>property listing pages</li>
+          <li>Time-NFT purchase flow</li>
+          <li>raffle participation mechanics</li>
+          <li>user dashboard with asset visualization</li>
+        </ul>
+        <br>
+        <p class="text"><strong>Special attention was given to:</strong></p>
+        <ul class="list text">
+          <li>transparent fee display</li>
+          <li>transaction clarity</li>
+          <li>simplifying Web3 interactions for non-crypto users</li>
+        </ul>
+
+        <!-- 3. UI Design & Design System -->
+        <h3>3. UI Design &amp; Design System</h3>
+        <p class="text"><strong>We built a comprehensive design system including:</strong></p>
+        <ul class="list text">
+          <li>core brand identity</li>
+          <li>typography</li>
+          <li>color palette</li>
+          <li>UI component library (modals, states, interface elements)</li>
+        </ul>
+        <br>
+        <p class="text">This enabled faster development, consistency, and scalable growth without quality loss.</p>
+
+        <!-- UI Kit carousel -->
+        <div class="rwa-carousel swiper swiper-uikit">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./img/main-board/01_ui_kit.png" alt="UI Kit 1"></div>
+            <div class="swiper-slide"><img src="./img/main-board/02_ui_kit.png" alt="UI Kit 2"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Process carousel -->
+        <div class="rwa-carousel swiper swiper-process">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./img/main-board/00_process_d.png" alt="Process 1"></div>
+            <div class="swiper-slide"><img src="./img/main-board/01_process_d.png" alt="Process 2"></div>
+            <div class="swiper-slide"><img src="./img/main-board/02_process_d.png" alt="Process 3"></div>
+            <div class="swiper-slide"><img src="./img/main-board/03_process_d.png" alt="Process 4"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- 4. Development & Integration -->
+        <h3>4. Development &amp; Integration</h3>
+        <p class="text"><strong>Tech stack:</strong> Node.js, React / Next.js, Solidity</p>
+        <br>
+        <p class="text"><strong>Architecture included:</strong></p>
+        <ul class="list text">
+          <li>frontend (React / Next.js)</li>
+          <li>backend API (Node.js)</li>
+          <li>database</li>
+          <li>integrations (payment providers, custodians, compliance services)</li>
+          <li>admin panel</li>
+          <li>CI/CD pipeline</li>
+        </ul>
+        <br>
+        <p class="text">A key element was the API contract (OpenAPI / Swagger), allowing frontend and backend teams to work in parallel without blocking each other.</p>
+        <br>
+        <p class="text">We also defined a clear Definition of Done for every task.</p>
+        <br>
+        <p class="text"><strong>Branching strategy:</strong></p>
+        <ul class="list text">
+          <li><span style="color:#00FF59;">main</span> — production</li>
+          <li><span style="color:#00FF59;">develop</span> — staging</li>
+          <li><span style="color:#00FF59;">feature/*</span> — new features</li>
+          <li><span style="color:#00FF59;">hotfix/*</span> — urgent fixes</li>
+        </ul>
+        <br>
+        <p class="text"><strong>Each Pull Request:</strong></p>
+        <ul class="list text">
+          <li>linked to a Jira task</li>
+          <li>included change descriptions</li>
+          <li>passed a checklist (tests, no breaking changes, updated docs if needed)</li>
+        </ul>
+        <br>
+        <p class="text">No changes were merged without code review.</p>
+
+        <div class="exercise">
+          <div class="block">
+            <h2 class="title">Jenkins pipeline automation:</h2>
+            <p class="text">Automated steps triggered for pull requests, develop, and main branches.</p>
+            <table class="pipe-table" style="margin-top:16px;">
+              <thead>
+                <tr><th>For Pull Requests:</th><th>For develop:</th><th>For main:</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>install</td><td>deploy to staging</td><td>deploy to production</td></tr>
+                <tr><td>lint</td><td>smoke tests</td><td>release notes</td></tr>
+                <tr><td>test</td><td></td><td>tagging</td></tr>
+                <tr><td>build</td><td></td><td></td></tr>
+              </tbody>
+            </table>
+            <div class="pipe-cards">
+              <div class="pipe-card">
+                <div class="pipe-card__title">For Pull Requests:</div>
+                <ul class="pipe-card__list">
+                  <li>install</li>
+                  <li>lint</li>
+                  <li>test</li>
+                  <li>build</li>
+                </ul>
+              </div>
+              <div class="pipe-card">
+                <div class="pipe-card__title">For develop:</div>
+                <ul class="pipe-card__list">
+                  <li>deploy to staging</li>
+                  <li>smoke tests</li>
+                </ul>
+              </div>
+              <div class="pipe-card">
+                <div class="pipe-card__title">For main:</div>
+                <ul class="pipe-card__list">
+                  <li>deploy to production</li>
+                  <li>release notes</li>
+                  <li>tagging</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text">This ensured predictable releases and reduced human error.</p>
+        <br>
+        <p class="text"><strong>The team delivered:</strong></p>
+        <ul class="list text">
+          <li>responsive frontend</li>
+          <li>Polygon blockchain integration</li>
+          <li>smart contract connectivity</li>
+          <li>transaction status tracking</li>
+          <li>fully functional marketplace</li>
+        </ul>
+        <br>
+        <p class="text">We supported the project through full launch.</p>
+
+        <!-- 5. Landing Pages & Investment Website -->
+        <h3>5. Landing Pages &amp; Investment Website</h3>
+
+        <div class="promo-block promo-block--rwa-websites" lang="en">
+          <h2 class="title">Two websites were developed:</h2>
+          <div class="websites-links">
+            <a href="https://caribbean.rentonchain.in" target="_blank" rel="noopener" class="rwa-panel-link">caribbean.rentoncha.in</a>
+            <a href="https://invest.rentonchain.in" target="_blank" rel="noopener" class="rwa-panel-link">invest.rentoncha.in</a>
+          </div>
+        </div>
+
+        <p class="text websites-goals-title"><strong>Their goals:</strong></p>
+        <ul class="list text">
+          <li>communicate product value</li>
+          <li>build trust</li>
+          <li>explain real estate tokenization</li>
+          <li>drive investor registrations and leads</li>
+        </ul>
+
+        <!-- 6. QA, Acceptance & Releases -->
+        <h3>6. QA, Acceptance &amp; Releases</h3>
+        <p class="text"><strong>QA process included:</strong></p>
+        <ul class="list text">
+          <li>validation against acceptance criteria</li>
+          <li>testing key user flows</li>
+          <li>error handling</li>
+          <li>yield calculation accuracy</li>
+          <li>load testing (when required)</li>
+        </ul>
+        <br>
+        <p class="text"><strong>Before release:</strong></p>
+        <ul class="list text">
+          <li>develop branch freeze</li>
+          <li>release branch creation</li>
+          <li>final regression testing</li>
+          <li>production deployment</li>
+          <li>post-release monitoring</li>
+        </ul>
+        <br>
+        <p class="text"><strong>Post-release metrics:</strong></p>
+        <ul class="list text">
+          <li>active users</li>
+          <li>investment volume</li>
+          <li>API errors</li>
+          <li>latency</li>
+        </ul>
+        <br>
+        <p class="text">We set up alerts, analyzed logs, and conducted team retrospectives.</p>
+
+      </div>
+
+      <!-- RESULTS -->
+      <div class="paragraph">
+        <h2 class="title">Results</h2>
+        <ul class="list text">
+          <li>Scalable design system created</li>
+          <li>NFT marketplace successfully implemented</li>
+          <li>Smart contract integration completed</li>
+          <li>Platform fully designed and launched</li>
+          <li>Foundation prepared for future product growth</li>
+        </ul>
+        <br>
+        <p class="text">Rent Onchain received not just design, but a complete digital product with well-thought-out UX architecture and robust technical implementation.</p>
+
+        <!-- Results carousel -->
+        <div class="rwa-carousel rwa-carousel--results swiper swiper-results">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./img/main-board/01_mobile_1.png" alt="Result 1"></div>
+            <div class="swiper-slide"><img src="./img/main-board/02_desktop_1.png" alt="Result 2"></div>
+            <div class="swiper-slide"><img src="./img/main-board/03_mobile_2.png" alt="Result 3"></div>
+            <div class="swiper-slide"><img src="./img/main-board/04_mobile_2.png" alt="Result 4"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <br>
+        <p class="text"><strong>Key Takeaways</strong></p>
+        <ul class="list text">
+          <li>We operated as a full product team</li>
+          <li>Designed a complex Web3 system from scratch</li>
+          <li>Accounted for users without crypto experience</li>
+          <li>Delivered the project through to launch</li>
+        </ul>
+        <br>
+        <p class="text">Looking to build a product from scratch or relaunch an existing one?</p>
+        <br>
+        <p class="text"><strong><u>Roobinium can help with:</u></strong></p>
+        <ul class="list text">
+          <li>product design</li>
+          <li>complex UX system architecture</li>
+          <li>design systems</li>
+          <li>Web3 / blockchain product launches</li>
+          <li>full-cycle digital platform development</li>
+        </ul>
+      </div>
+
+      <section class="designer">
+  <div class="designer-follow">
+    <div class="designer-follow__content">
+      <div class="designer-follow__avatar">
+        <img src="./img/profile-card/avatar.jpg" alt="@vino_costa" class="designer-follow__avatar-img">
+      </div>
+      <p class="designer-follow__username">@vino_costa</p>
+      <p class="designer-follow__description">UX/UI, Web3, Crypto,<br>Casino, AI, DApps &amp;<br>Cyberpunk</p>
+      <p class="designer-follow__followers">66,481 followers</p>
+      <a href="https://vino_costa.dribbble.com/" target="_blank" class="designer-follow__follow-btn button">
+        <img src="./icons/profile-card/Dribbble.svg" alt="Dribbble"> Follow
+      </a>
+      <div class="designer-follow__dribbble-logo">
+        <img src="./img/main-board/logo-dribbble-large.png" alt="Dribbble">
+      </div>
+    </div>
+    <div class="designer-follow__background">
+      <img src="./img/main-board/cta-promo.jpg" alt="Designer background" class="designer-follow__bg-image designer-follow__bg-image--desctop">
+      <img src="./img/main-board/cta-promo-min.jpg" alt="Designer background" class="designer-follow__bg-image designer-follow__bg-image--mobile">
+    </div>
+  </div>
+
+  <div class="designer-offer">
+    <div class="designer-offer__content">
+      <div class="card">
+        <div class="price">
+          <div>
+            <div class="price__regular-lable">Regular Price:</div>
+            <div class="price__regular">$1,497</div>
+            <span></span>
+          </div>
+          <div>
+            <div class="price__label">Trial Week:</div>
+            <div class="price__current">$997</div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h2 class="content__title content__title--desctop">SENIOR UX/UI DESIGNER<br>WEEKLY DESIGN<br>SUPPORT FOR STARTUPS</h2>
+        <h2 class="content__title content__title--mobile">SENIOR UX/UI DESIGNER DESIGN<br>SUPPORT FOR STARTUPS</h2>
+        <h2 class="content__subtitle">Launch Your Startup Design ⚡️</h2>
+        <p class="content__description content__description--desctop">Get a Senior UX/UI Designer fully focused on your<br class="toggle-lang">product for one week. In just 7 days, I’ll run a<br class="toggle-lang">complete design sprint: user flows, clickable<br class="toggle-lang">prototypes, and stunning<br class="toggle-lang">UI that attracts investors and users.</p>
+        <p class="content__description content__description--mobile">Get a Senior UX/UI Designer for a full 7-day sprint. Clean flows, prototypes, stunning UI.</p>
+        <div class="buttons">
+          <a href="https://dribbble.com/services/111642-UX-UI-DESIGNER-WEEKLY-DESIGN-SUPPORT" target="_blank" class="button button--primary"><span>Trial Week</span></a>
+          <a href="https://roobinium.io/projects.html" target="_blank" class="button button--secondary"><span>Portfolio</span> <img src="./icons/hero/->.svg" alt="->"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tags-search">
+    <h2 class="tags-search__title">Tags for search</h2>
+    <div class="tags-search__container">
+      <div class="tags-search__grid">
+        <div class="tags-search__tag">startup</div>
+        <div class="tags-search__tag">digital-product</div>
+        <div class="tags-search__tag">design-sprint</div>
+        <div class="tags-search__tag">mvp-strategy</div>
+        <div class="tags-search__tag tags-search__tag--hidden">ux-ui-design</div>
+        <div class="tags-search__tag">web3-design</div>
+        <div class="tags-search__tag">creative-process</div>
+        <div class="tags-search__tag">rapid-prototyping</div>
+        <div class="tags-search__tag tags-search__tag--hidden">mvp-launch</div>
+        <div class="tags-search__tag tags-search__tag--hidden">lean-methodology</div>
+        <div class="tags-search__tag">figma-workflow</div>
+        <div class="tags-search__tag tags-search__tag--hidden">innovation-framework</div>
+        <div class="tags-search__tag tags-search__tag--hidden">entrepreneurship</div>
+        <div class="tags-search__tag tags-search__tag--hidden">crypto-startups</div>
+        <div class="tags-search__tag tags-search__tag--hidden">no-code-tools</div>
+        <div class="tags-search__tag tags-search__tag--hidden">landing-page-design</div>
+        <div class="tags-search__tag tags-search__tag--hidden">founder-mindset</div>
+        <div class="tags-search__tag tags-search__tag--hidden">user-empathy</div>
+        <div class="tags-search__tag tags-search__tag--hidden">design-culture</div>
+        <div class="tags-search__tag tags-search__tag--hidden">continuous-improvement</div>
+        <div class="tags-search__tag">roobinium</div>
+        <div class="tags-search__tag tags-search__tag--hidden">product-validation</div>
+        <div class="tags-search__tag tags-search__tag--hidden">startup-framework</div>
+        <div class="tags-search__tag tags-search__tag--hidden">build-mvp-fast</div>
+        <div class="tags-search__tag tags-search__tag--hidden">design-thinking</div>
+        <div class="tags-search__tag">product-discovery</div>
+        <div class="tags-search__toggle" data-state="show">Show more</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </section>
+  </div>
+</main>
+
+<footer class="wow footer">
+  <img class="footer--desctop" src="./img/main-board/main.jpg" alt="roobinium-team">
+  <img class="footer--mobile" src="./img/footer/bg.jpg" alt="bg">
+  <div class="footer__buttons">
+    <a href="https://dribbble.com/services/111642-UX-UI-DESIGNER-WEEKLY-DESIGN-SUPPORT" target="_blank" class="button button--primary"><span>Trial Week</span></a>
+    <a href="https://roobinium.io/projects.html" target="_blank" class="button button--secondary"><span>Portfolio</span></a>
+  </div>
+</footer>
+
+<script type="module" defer="defer" src="./js/bundle.js"></script>
+<script src="./js/libs/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+function copyEmail(){navigator.clipboard.writeText('cryptoroobinium@gmail.com').then(function(){alert('Email скопирован в буфер обмена!');});}
+document.addEventListener('DOMContentLoaded',function(){
+  var isMobile=window.matchMedia('(max-width:500px)').matches;
+  new Swiper('.swiper-uikit',{
+    loop:!isMobile,
+    slidesPerView:isMobile?'auto':1,
+    centeredSlides:isMobile,
+    spaceBetween:isMobile?10:24,
+    watchOverflow:true,
+    navigation:{nextEl:'.swiper-uikit .swiper-button-next',prevEl:'.swiper-uikit .swiper-button-prev'},
+    pagination:{el:'.swiper-uikit .swiper-pagination',clickable:true}
+  });
+  new Swiper('.swiper-process',{
+    loop:!isMobile,
+    slidesPerView:isMobile?'auto':1,
+    centeredSlides:isMobile,
+    spaceBetween:isMobile?24:24,
+    watchOverflow:true,
+    navigation:{nextEl:'.swiper-process .swiper-button-next',prevEl:'.swiper-process .swiper-button-prev'},
+    pagination:{el:'.swiper-process .swiper-pagination',clickable:true}
+  });
+  new Swiper('.swiper-results',{
+    loop:!isMobile,
+    slidesPerView:isMobile?'auto':1,
+    centeredSlides:isMobile,
+    spaceBetween:isMobile?24:24,
+    watchOverflow:true,
+    navigation:{nextEl:'.swiper-results .swiper-button-next',prevEl:'.swiper-results .swiper-button-prev'},
+    pagination:{el:'.swiper-results .swiper-pagination',clickable:true}
+  });
+});
+</script>
+</body>
+</html>
